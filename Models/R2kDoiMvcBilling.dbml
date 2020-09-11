@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="R2kdoiMVC" EntityNamespace="Model.Billing" Class="R2kDoiMvcBillingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=kali;Initial Catalog=R2kdoiMVC;Integrated Security=True;Application Name=Webistrar" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="R2kdoiMVCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Catalog.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ProductDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discontinued" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Product_Product" Member="Products" ThisKey="ProductId" OtherKey="ParentId" Type="Product" />
+      <Association Name="Product_BillingDetail" Member="BillingDetails" ThisKey="ProductId" OtherKey="ProductId" Type="BillingDetail" />
+      <Association Name="Product_Product" Member="Product" ThisKey="ParentId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Catalog.UnitTypes" Member="UnitTypes">
+    <Type Name="UnitType">
+      <Column Name="UnitTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UnitType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Orderby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UnitType_BillingDetail" Member="BillingDetails" ThisKey="UnitTypeId" OtherKey="UnitTypeId" Type="BillingDetail" />
+    </Type>
+  </Table>
+  <Table Name="Catalog.Locations" Member="Locations">
+    <Type Name="Location">
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LocationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAddress1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAddress2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="MainNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="TTyNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FaxNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="WebAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Location_Billing" Member="Billings" ThisKey="LocationId" OtherKey="LocationId" Type="Billing" />
+    </Type>
+  </Table>
+  <Table Name="[Case].FundingSources" Member="FundingSources">
+    <Type Name="FundingSource">
+      <Column Name="FundingSourceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Acronym" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="discontinued" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FundingSource_ReferringCounselor" Member="ReferringCounselors" ThisKey="FundingSourceId" OtherKey="FundingSourceId" Type="ReferringCounselor" />
+      <Association Name="FundingSource_Billing" Member="Billings" ThisKey="FundingSourceId" OtherKey="FundingSourceId" Type="Billing" />
+    </Type>
+  </Table>
+  <Table Name="Options.Actions" Member="Actions">
+    <Type Name="Action">
+      <Column Name="ActionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Association Name="Action_BillingCycle" Member="BillingCycles" ThisKey="ActionId" OtherKey="ActionId" Type="BillingCycle" />
+    </Type>
+  </Table>
+  <Table Name="[Case].ReferringCounselors" Member="ReferringCounselors">
+    <Type Name="ReferringCounselor">
+      <Column Name="ReferringCounselorId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RepCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FundingSourceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldContactId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ud" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ReferringCounselor_Billing" Member="Billings" ThisKey="ReferringCounselorId" OtherKey="FundingCounslerId" Type="Billing" />
+      <Association Name="FundingSource_ReferringCounselor" Member="FundingSource" ThisKey="FundingSourceId" OtherKey="FundingSourceId" Type="FundingSource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].RegisteredUsers" Member="RegisteredUsers">
+    <Type Name="RegisteredUser">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Supervisor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="RegisteredUser_RegisteredUser" Member="RegisteredUsers" ThisKey="UserId" OtherKey="Supervisor" Type="RegisteredUser" />
+      <Association Name="RegisteredUser_BillingCycle" Member="BillingCycles" ThisKey="UserId" OtherKey="InputedBy" Type="BillingCycle" />
+      <Association Name="RegisteredUser_Billing" Member="Billings" ThisKey="UserId" OtherKey="Inputedby" Type="Billing" />
+      <Association Name="RegisteredUser_Billing1" Member="Billings1" ThisKey="UserId" OtherKey="ProgramSupervisorId" Type="Billing" />
+      <Association Name="RegisteredUser_Info" Member="Infos" ThisKey="UserId" OtherKey="Inputedby" Type="Info" />
+      <Association Name="RegisteredUser_Billing2" Member="Billings2" ThisKey="UserId" OtherKey="BillingManagerId" Type="Billing" />
+      <Association Name="RegisteredUser_RegisteredUser" Member="SupervisorUsers" ThisKey="Supervisor" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Admin.BillingCycle" Member="BillingCycles">
+    <Type Name="BillingCycle">
+      <Column Name="BillingCycleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BillingId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActionDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NoteId" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ts" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="Action_BillingCycle" Member="Action" ThisKey="ActionId" OtherKey="ActionId" Type="Action" IsForeignKey="true" />
+      <Association Name="RegisteredUser_BillingCycle" Member="InputedByUser" ThisKey="InputedBy" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="Billing_BillingCycle" Member="Billing" ThisKey="BillingId" OtherKey="Id" Type="Billing" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Programs" Member="Programs">
+    <Type Name="Program">
+      <Column Name="ProgramId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Acronym" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramDescription" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="PoTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Program_Billing" Member="Billings" ThisKey="ProgramId" OtherKey="ProgramId" Type="Billing" />
+      <Association Name="PoType_Program" Member="PoType" ThisKey="PoTypeId" OtherKey="PoTypeId" Type="PoType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.PoTypes" Member="PoTypes">
+    <Type Name="PoType">
+      <Column Name="PoTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShortName" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Association Name="PoType_Program" Member="Programs" ThisKey="PoTypeId" OtherKey="PoTypeId" Type="Program" />
+    </Type>
+  </Table>
+  <Table Name="Admin.Billings" Member="Billings">
+    <Type Name="Billing" Id="ID1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramSupervisorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CostCenter" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DateIssued" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundingSourceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundingCounslerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuthorizationNo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AuthorizationApprovedById" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Inputedby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AuthorizationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DbTimeStamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="BillingManagerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Billing_BillingCycle" Member="BillingCycles" ThisKey="Id" OtherKey="BillingId" Type="BillingCycle" />
+      <Association Name="Billing_BillingDetail" Member="BillingDetails" ThisKey="Id" OtherKey="BillingId" Type="BillingDetail" />
+      <Association Name="FundingSource_Billing" Member="FundingSource" ThisKey="FundingSourceId" OtherKey="FundingSourceId" Type="FundingSource" IsForeignKey="true" />
+      <Association Name="Location_Billing" Member="Location" ThisKey="LocationId" OtherKey="LocationId" Type="Location" IsForeignKey="true" />
+      <Association Name="Program_Billing" Member="Program" ThisKey="ProgramId" OtherKey="ProgramId" Type="Program" IsForeignKey="true" />
+      <Association Name="ReferringCounselor_Billing" Member="ReferringCounselor" ThisKey="FundingCounslerId" OtherKey="ReferringCounselorId" Type="ReferringCounselor" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Billing" Member="InputedByRU" ThisKey="Inputedby" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Billing1" Member="ProgramSupervisor" ThisKey="ProgramSupervisorId" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="Info_Billing" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Billing2" Member="RegisteredUser" ThisKey="BillingManagerId" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Info" Member="Infos">
+    <Type Name="Info">
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SSN" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="REF" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConsumerTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Inputedby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Permilink" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PrefixId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SufixId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FlagForHr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Info_Billing" Member="Billings" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Billing" />
+      <Association Name="RegisteredUser_Info" Member="RegisteredUser" ThisKey="Inputedby" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Admin.BillingDetails" Member="BillingDetails">
+    <Type Name="BillingDetail">
+      <Column Name="BillingDetailsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BillingId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfUnits" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="UnitTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfUnitsAuthorized" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitePriceAuthorized" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="AStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MinsWorked" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DBTimeStamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Details" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" />
+      <Column Name="BillingManagerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Billing_BillingDetail" Member="Billing" ThisKey="BillingId" OtherKey="Id" Type="Billing" IsForeignKey="true" />
+      <Association Name="Product_BillingDetail" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="UnitType_BillingDetail" Member="UnitType" ThisKey="UnitTypeId" OtherKey="UnitTypeId" Type="UnitType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetBillingInfoFromAuthorization" Method="GetBillingInfoFromAuthorization">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetBillingInfoFromAuthorizationResult">
+      <Column Name="InvoiceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ammountBilled" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AccrueService" Method="AccrueService">
+    <Parameter Name="ServiceId" Parameter="serviceId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="InputedBy" Parameter="inputedBy" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AccrueServiceResult">
+      <Column Name="BillingId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AcceptBilling" Method="AcceptBilling">
+    <Parameter Name="Billingid" Parameter="billingid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="inputedBy" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.StartBilling" Method="StartBilling">
+    <Parameter Name="Billingid" Parameter="billingid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="inputedby" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VoidBilling" Method="VoidBilling">
+    <Parameter Name="Billingid" Parameter="billingid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="inputedby" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_GetBillingStatus" Method="SP_GetBillingStatus">
+    <Parameter Name="BillingId" Parameter="billingId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_GetBillingStatusResult">
+      <Column Name="status" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PennyService" Method="PennyService">
+    <Parameter Name="ServiceId" Parameter="serviceId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="InputedBy" Parameter="inputedBy" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PennyServiceResult">
+      <Column Name="BillingId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CancelService" Method="CancelService">
+    <Parameter Name="serviceId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MakeBill" Parameter="makeBill" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="InputedBy" Parameter="inputedBy" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CancelServiceResult">
+      <Column Name="BillingId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.RemoveBillingDetails" Method="RemoveBillingDetails">
+    <Parameter Name="BillingDetailsId" Parameter="billingDetailsId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ApproveBilling" Method="ApproveBilling">
+    <Parameter Name="Billingid" Parameter="billingid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="inputedBy" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetBillsFromStatus" Method="GetBillsFromStatus">
+    <Parameter Name="BillingStatus" Parameter="billingStatus" Type="System.String" DbType="VarChar(10)" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.ManualBill" Method="ManualBill">
+    <Parameter Name="ServiceId" Parameter="serviceId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductId" Parameter="productId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumberOfUnits" Parameter="numberOfUnits" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="UnitPrice" Parameter="unitPrice" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="ServiceStartDate" Parameter="serviceStartDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ServiceEndDate" Parameter="serviceEndDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="InputedBy" Parameter="inputedBy" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BackupStatusOnBilling" Method="BackupStatusOnBilling">
+    <Parameter Name="billingid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

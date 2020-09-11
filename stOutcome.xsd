@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:vgs:st" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProgramOutcome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Outcome">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Goal" type="xs:string" />
+        <xs:element name="MainName" type="xs:unsignedByte" />
+        <xs:element name="MainScore" type="xs:unsignedByte" />
+        <xs:element name="PracticeName" type="xs:unsignedByte" />
+        <xs:element name="PracticeScore" type="xs:unsignedByte" />
+        <xs:element name="NoteId" type="xs:unsignedByte" />
+        <xs:element name="Satfor3rdParty" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="CompletedBy" type="xs:string" use="required" />
+      <xs:attribute name="type" type="xs:string" use="required" />
+      <xs:attribute name="ed" type="xs:string" use="required" />
+      <xs:attribute name="version" type="xs:decimal" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

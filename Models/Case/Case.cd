@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="R2kdoiMVC.AuthorizationsRepository" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAIAgIAAAAEAAAKAAAAAAAAAAAhAAAACAAAgAAAACEA=</HashCode>
+      <FileName>Models\Case\iAuthorizationsRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.ServiceRepository" Collapsed="true">
+    <Position X="7" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAMAgIAAAAAAAAAACAAAgAAAAAAAAAAAAAAAACgAAEA=</HashCode>
+      <FileName>Models\Case\iServicesRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.ReferralRepository" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAMBgIAAAAAAAACAAAAAAAAAAAAgAAABABAAAAAAAAA=</HashCode>
+      <FileName>Models\Case\iReferralRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.ReferringCounslerRepository" Collapsed="true">
+    <Position X="3.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAMAgoAAAAAAAACQAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Case\iReferringCounsler.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.ReportsRepository" Collapsed="true">
+    <Position X="2" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAIBAAIEQAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Case\iReportsRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.NotesRepository" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAMAgIAAAAAAAAAAAgAAAAAAEAAAAUAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Case\iNotesRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.PlacementsRepository">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAEQAAAAAAAAAAAAAAAAAkAAAAgAAAACAgA=</HashCode>
+      <FileName>iPlacementsRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="R2kdoiMVC.iAuthorizationsRepository" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAIAAIAAAAAAAAKAAAAAAAAAAAhAAAACAAAgAAAACEA=</HashCode>
+      <FileName>Models\Case\iAuthorizationsRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iServicesRepository">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAEA=</HashCode>
+      <FileName>Models\Case\iServicesRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iReferralRepository" Collapsed="true">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIBAIAAAAAAAACAAAAAAAAAAAAgAAABABAAAAAAAAA=</HashCode>
+      <FileName>Models\Case\iReferralRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iReferringCounslerRepository" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAoAAAAAAAACQAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Case\iReferringCounsler.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iReportsRepository" Collapsed="true">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAIBAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Case\iReportsRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iNotesRepository" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAIAAAAAAAAAAAgAAAAAAEAAAAUAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Case\iNotesRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iPlacementsRepository">
+    <Position X="9" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAgAAAACAAA=</HashCode>
+      <FileName>iPlacementsRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

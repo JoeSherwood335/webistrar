@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2011-07-27T15:16:27" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/office/infopath/2003/myXSD/2011-07-27T15:16:27" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xs:element name="GoalPlan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="provider" type="xs:unsignedLong" />
+        <xs:element name="locaton" type="xs:string" />
+        <xs:element name="datespan" type="xs:string" />
+        <xs:element name="implementation" type="xs:date" />
+        <xs:element name="medicaid" type="xs:unsignedLong" />
+        <xs:element name="supportadmin" type="xs:string" />
+        <xs:element name="frequency" type="xs:string" />
+        <xs:element name="supervisor" type="xs:string" />
+        <xs:element name="monthyear" type="xs:string" />
+        <xs:element name="comments">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="comment">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="date" nillable="true" type="xs:string" />
+                    <xs:element name="initial" type="xs:string" />
+                    <xs:element name="commentText" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="currentMonthyAvgSuccessRate" type="xs:string" />
+        <xs:element name="lastMonthMonthyAvgSuccessRate" />
+        <xs:element name="TwoMonthsMonthyAvgSuccessRate" />
+        <xs:element name="threeMonthsMonthyAvgSuccessRate" />
+        <xs:element name="fourMonthsMonthyAvgSuccessRate" />
+        <xs:element name="fiveMonthsMonthyAvgSuccessRate" />
+        <xs:element name="notes" />
+        <xs:element name="signature" nillable="true" />
+        <xs:element name="goalArea" type="xs:string" />
+        <xs:element name="baseLine" type="xs:string" />
+        <xs:element name="goal" type="xs:string" />
+        <xs:element name="procedures" type="xs:string" />
+        <xs:element name="res">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="day">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="t1YesNo" type="xs:string" />
+                    <xs:element name="t1TypePrompt" type="xs:string" />
+                    <xs:element name="t1NumberOfPrompts" type="xs:unsignedByte" />
+                    <xs:element name="t1Initials" type="xs:string" />
+                    <xs:element name="t2YesNo" />
+                    <xs:element name="t2TypePrompt" />
+                    <xs:element name="t2NumberofPrompts" />
+                    <xs:element name="t2Initials" />
+                    <xs:element name="t3YesNo" />
+                    <xs:element name="t3TypePrompt" />
+                    <xs:element name="t3NumberOfPrompts" />
+                    <xs:element name="t3Initials" />
+                    <xs:element name="dayofMonth" type="xs:unsignedByte" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="month" type="xs:unsignedByte" />
+        <xs:element name="year" type="xs:unsignedShort" />
+      </xs:sequence>
+      <xs:attribute ref="my:duration" use="required" />
+      <xs:attribute ref="my:groupsizeAcuity" use="required" />
+      <xs:attribute ref="xml:lang" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:attribute name="duration" type="xs:decimal" />
+  <xs:attribute name="groupsizeAcuity" type="xs:string" />
+</xs:schema>

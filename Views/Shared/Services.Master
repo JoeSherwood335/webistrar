@@ -1,0 +1,57 @@
+﻿<%@ Master Language="VB" Inherits="System.Web.Mvc.ViewMasterPage" MasterPageFile="~/Views/Shared/Site.Master" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <ul id="menu"> 
+        <li><%=Html.ActionLink("New", "NewServices", "Services", New With {.Sort = HttpContext.Current.Request.QueryString("Sort"), .Dir = HttpContext.Current.Request.QueryString("Dir"), .Search = HttpContext.Current.Request.QueryString("Search"), .cm = HttpContext.Current.Request.QueryString("cm")}, Nothing)%></li>             
+        <li><%=Html.ActionLink("Pending", "Pending", "Services", New With {.Sort = HttpContext.Current.Request.QueryString("Sort"), .Dir = HttpContext.Current.Request.QueryString("Dir"), .Search = HttpContext.Current.Request.QueryString("Search"), .cm = HttpContext.Current.Request.QueryString("cm")}, Nothing)%></li>
+        <li><%=Html.ActionLink("Inprogress", "InProgress", "Services", New With {.Sort = HttpContext.Current.Request.QueryString("Sort"), .Dir = HttpContext.Current.Request.QueryString("Dir"), .Search = HttpContext.Current.Request.QueryString("Search"), .cm = HttpContext.Current.Request.QueryString("cm")}, Nothing)%></li>
+        <li><%=Html.ActionLink("Completed", "Completed", "Services", New With {.Sort = HttpContext.Current.Request.QueryString("Sort"), .Dir = HttpContext.Current.Request.QueryString("Dir"), .Search = HttpContext.Current.Request.QueryString("Search"), .cm = HttpContext.Current.Request.QueryString("cm")}, Nothing)%></li>
+        <li><%=Html.ActionLink("My Staff", "Index", "Supervisor")%></li>
+   </ul>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+    </asp:ContentPlaceHolder>
+    <div id="foo" style="display:none;"></div>
+
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="HeaderContent" runat="server">
+     <style type="text/css">
+     
+     .ui-datepicker {z-index:10100;} 
+     </style>
+     <script type="text/javascript" >
+         $(document).ready(function() {
+             //$.ajaxSetup({ cache: false });
+             $("#.SelectService > a").click(function(data) {
+                 $("#foo").load(this.href + " form", function() {
+
+                     $("#foo").dialog({
+                         open: function(event, ui) {
+                             $('input.date').datepicker({
+                                 changeMonth: true,
+                                 changeYear: true,
+                                 showOtherMonths: true,
+                                 selectOtherMonths: true
+                             }); //end datepicker
+                         } // end foo dialog open
+                     }); // end foo dialog
+
+                 }); // end foo load 
+                 return false
+             }); // end newc click
+         });   // end document load 
+      </script>
+        
+     <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+
+     </asp:ContentPlaceHolder>
+     
+     </asp:Content>

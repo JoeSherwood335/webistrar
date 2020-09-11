@@ -1,0 +1,65 @@
+﻿#formmenu ul {
+     margin:0px 0px;
+     padding:0px;
+     list-style-type:none;
+     list-style-position:outside;
+     position:relative;
+     /*line-height:1.5em;*/
+     z-index: 100;
+	 
+ }
+ 
+ #formmenu > ul > li{
+    float:left;
+    font-size: medium ;
+    margin: 0px 10px 0px 0px;
+    width:100px;
+  }
+
+
+#formmenu > ul > li >  ul {
+/*    position:absolute; */
+    display :block;
+}
+
+
+ #formmenu > ul > li > a:link,
+ #formmenu > ul > li > a:active, 
+ #formmenu > ul > li > a:visited{
+    display:block;
+    padding:5px 5px;
+    color:#034af3;
+    text-decoration:none;
+	font-family: Arial, Helvetica, sans-serif ;
+	background: #e8eef4 ;
+	font-weight: bold;
+	text-transform: capitalize;
+	margin:0px 0px 0px 0px;
+	width:100%;
+ }
+ 
+ #formmenu > ul > li:hover > a:link, 
+ #formmenu > ul > li:hover > a:active, 
+ #formmenu > ul > li:hover > a:visited{
+    background-color:gray;
+ }
+ 
+ 
+ #formmenu > ul > li > ul > li > a:link, 
+ #formmenu > ul > li > ul > li > a:active, 
+ #formmenu > ul > li > ul > li > a:visited
+ {
+ 	display:block;
+    text-decoration:none;
+	text-transform: capitalize;
+	padding:5px 5px;
+	margin:0px 0px; /*0px 0px;*/
+	width:100px;
+ }
+
+ #formmenu > ul > li > ul > li:hover > a:link, #formmenu > ul > li > ul > li:hover > a:active, #formmenu > ul > li > ul > li:hover > a:visited, #formmenu > ul > li > ul > li:hover > span > a:link, #formmenu > ul > li > ul > li:hover > span > a:active, #formmenu > ul > li > ul > li:hover > span > a:visited
+{
+	background-color: #C0C0C0;
+}
+
+

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="R2kdoiMVC.InfoRepository" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAgIAAgABAAAAAAAgAAQAAAAAABEAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\Consumers\iInfoRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.DisabilityRepository" Collapsed="true">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAhIAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Consumers\iDisabilityRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.AddressRepository" Collapsed="true">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAACAAAAAAAAAAAAAAAAAAAACAAAgAAAAAAA=</HashCode>
+      <FileName>Models\Consumers\iAddressRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="R2kdoiMVC.ContactRepository" Collapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgIAAAAAAAAAAAAAAACAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\Consumers\iContactRepository.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="R2kdoiMVC.iInfoRepository" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIAAAABABAAAAAAAAQAAAAAAAMAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\Consumers\iInfoRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iContactRepository" Collapsed="true">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIAAAAAAAAAAAAAAACAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\Consumers\iContactRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iAddressRepository" Collapsed="true">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAACAAAAAAAAAAAAAAAAAAAACAAAgAAAAAAA=</HashCode>
+      <FileName>Models\Consumers\iAddressRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="R2kdoiMVC.iDisabilityRepository" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIABIAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Consumers\iDisabilityRepository.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

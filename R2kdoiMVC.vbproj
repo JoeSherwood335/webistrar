@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{568293E2-6EB9-42E5-B438-12207D8ABF97}</ProjectGuid>
+    <ProjectTypeGuids>{603c0e0b-db56-11dc-be95-000d561079b0};{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>R2kdoiMVC</RootNamespace>
+    <AssemblyName>R2kdoiMVC</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>R2kdoiMVC.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>R2kdoiMVC.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MvcPaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\mvcpaging-rc1\src\MvcPaging\bin\Debug\MvcPaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Mvc" />
+    <Import Include="System.Web.Mvc.Ajax" />
+    <Import Include="System.Web.Mvc.Html" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AlertController.vb" />
+    <Compile Include="Controllers\ServiceAttendanceController.vb" />
+    <Compile Include="Controllers\SherwoodController.vb" />
+    <Compile Include="Controllers\SpecialNeedsController.vb" />
+    <Compile Include="InfoPathResult.vb" />
+    <Compile Include="Mail\AuthorizationSendMail.vb" />
+    <Compile Include="Mail\iSendMail.vb" />
+    <Compile Include="Controllers\AdminController.vb" />
+    <Compile Include="Controllers\AttendancesController.vb" />
+    <Compile Include="Controllers\AuthorizationsController.vb" />
+    <Compile Include="Controllers\BillingsController.vb" />
+    <Compile Include="Controllers\CompanysController.vb" />
+    <Compile Include="Controllers\Consumers.AddressController.vb" />
+    <Compile Include="Controllers\CataLog.FeesController.vb" />
+    <Compile Include="Controllers\CataLog.FundingSourcesController.vb" />
+    <Compile Include="Controllers\CataLog.LocationsController.vb" />
+    <Compile Include="Controllers\CataLog.ProductsController.vb" />
+    <Compile Include="Controllers\Consumers.ContactController.vb" />
+    <Compile Include="Controllers\Consumers.DisabilityController.vb" />
+    <Compile Include="Controllers\Consumers.infoController.vb" />
+    <Compile Include="Controllers\CataLog.UnitTypesController.vb" />
+    <Compile Include="Controllers\Admin.ServiceOutcomesController.vb" />
+    <Compile Include="Controllers\Consumers.IncomeController.vb" />
+    <Compile Include="Controllers\NotesController.vb" />
+    <Compile Include="Controllers\PlacementsController.vb" />
+    <Compile Include="Controllers\ProfileController.vb" />
+    <Compile Include="Controllers\ProgramsController.vb" />
+    <Compile Include="Controllers\ReferralController.vb" />
+    <Compile Include="Controllers\ReferringCounslersController.vb" />
+    <Compile Include="Controllers\RegisteredUsersController.vb" />
+    <Compile Include="Controllers\ReportsController.vb" />
+    <Compile Include="Controllers\ServicesController.vb" />
+    <Compile Include="Controllers\SupervisorController.vb" />
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Exceptions.vb" />
+    <Compile Include="Helpers\CheckDetails.vb" />
+    <Compile Include="iPlacementsRepository.vb" />
+    <Compile Include="Mail\SendMail.vb" />
+    <Compile Include="Mail\ServicesSendMail.vb" />
+    <Compile Include="Models\Admin\Repository.vb" />
+    <Compile Include="Models\Attendance\Attendance.vb" />
+    <Compile Include="Models\Case\Accruell.vb" />
+    <Compile Include="Models\Case\Attendance.vb" />
+    <Compile Include="Models\Case\AttendanceLineClass.vb" />
+    <Compile Include="Models\Case\Authorization.vb" />
+    <Compile Include="Models\Case\Authorizations.vb" />
+    <Compile Include="Models\Case\billing.vb" />
+    <Compile Include="Models\Case\note.vb" />
+    <Compile Include="Models\Case\CompanyRepository.vb" />
+    <Compile Include="Models\Case\Placements.vb" />
+    <Compile Include="Models\Case\profile.vb" />
+    <Compile Include="Models\Case\referral.vb" />
+    <Compile Include="Models\Case\RegisteredUsers.vb" />
+    <Compile Include="Models\Case\Services.vb" />
+    <Compile Include="Models\Consumers\Contact.vb" />
+    <Compile Include="Models\Consumers\Disability.vb" />
+    <Compile Include="Models\Consumers\Income.vb" />
+    <Compile Include="Models\Consumers\Info.vb" />
+    <Compile Include="Models\Consumers\misc.vb" />
+    <Compile Include="Models\ProgramOutcomes\BlankOutcome.vb" />
+    <Compile Include="Models\ProgramOutcomes\ddsOutcome.vb" />
+    <Compile Include="Models\ProgramOutcomes\JCOutcome.vb" />
+    <Compile Include="Models\ProgramOutcomes\dsOutcome.vb" />
+    <Compile Include="Models\ProgramOutcomes\iProgramoutcome.vb" />
+    <Compile Include="Models\ProgramOutcomes\JsstDDL.vb" />
+    <Compile Include="Models\ProgramOutcomes\JsstOutcome.vb" />
+    <Compile Include="Models\Case\iNotesRepository.vb" />
+    <Compile Include="Models\Case\iReferringCounsler.vb" />
+    <Compile Include="Models\Case\iReportsRepository.vb" />
+    <Compile Include="Models\Case\iBillingRepository.vb" />
+    <Compile Include="Models\Case\iReferralRepository.vb" />
+    <Compile Include="Models\Case\iAuthorizationsRepository.vb" />
+    <Compile Include="Models\Admin\iSetServiceOutComeRepository.vb" />
+    <Compile Include="Models\Case\iServicesRepository.vb" />
+    <Compile Include="Models\Case\ProgramRepository.vb" />
+    <Compile Include="Models\Consumers\iAddressRepository.vb" />
+    <Compile Include="Models\Consumers\iContactRepository.vb" />
+    <Compile Include="Models\Consumers\iDisabilityRepository.vb" />
+    <Compile Include="Models\Consumers\iInfoRepository.vb" />
+    <Compile Include="Models\Catalog\iUniteTypeRepository.vb" />
+    <Compile Include="Models\Catalog\iProductRepository.vb" />
+    <Compile Include="Models\Catalog\iLocationsRepository.vb" />
+    <Compile Include="Models\Catalog\LocationsRepository.vb" />
+    <Compile Include="Models\Catalog\FundingSourceRepository.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Catalog\iFundingSourceRepository.vb" />
+    <Compile Include="Models\Catalog\ProductRepository.vb" />
+    <Compile Include="Models\PartialClasses.vb" />
+    <Compile Include="Models\ProgramOutcomes\PdOutcome.vb" />
+    <Compile Include="Models\ProgramOutcomes\ProgramOutcome.vb" />
+    <Compile Include="Models\ProgramOutcomes\WaOutcome.vb" />
+    <Compile Include="Models\R2kdoiMVC.designer.vb">
+      <DependentUpon>R2kdoiMVC.dbml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\R2kdoiMVC.vb">
+      <DependentUpon>R2kdoiMVC.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\r2kdoiMvcAttendance.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>r2kdoiMvcAttendance.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\r2kdoiMvcAttendance.vb">
+      <DependentUpon>r2kdoiMvcAttendance.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\R2kDoiMvcBilling.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R2kDoiMvcBilling.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\R2kDoiMvcBilling.vb">
+      <DependentUpon>R2kDoiMvcBilling.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controllers\AccountController.vb" />
+    <Compile Include="Controllers\HomeController.vb" />
+    <Compile Include="Models\Catalog\UnitTypeRepository.vb" />
+    <Compile Include="MyApp.vb" />
+    <Compile Include="Models\ProgramOutcomes\WeOutcome.vb" />
+    <Compile Include="Models\ProgramOutcomes\StOutcome.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\R2kdoiMVC.dbml.layout">
+      <DependentUpon>R2kdoiMVC.dbml</DependentUpon>
+    </None>
+    <None Include="Models\R2kDoiMvcBilling.dbml.layout">
+      <DependentUpon>R2kDoiMvcBilling.dbml</DependentUpon>
+    </None>
+    <None Include="Models\r2kdoiMvcAttendance.dbml.layout">
+      <DependentUpon>r2kdoiMvcAttendance.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="JsstOutcome.xsd" />
+    <None Include="Models\Admin\AdminClassDiagram.cd" />
+    <None Include="Models\Case\Case.cd" />
+    <None Include="Models\Consumers\Consumers.cd" />
+    <None Include="Models\Catalog\Catalog.cd" />
+    <None Include="Models\ProgramOutcomes\ProgramOutcomes.cd" />
+    <None Include="Models\R2kdoiMVC.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>R2kdoiMVC.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\r2kdoiMvcAttendance.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>r2kdoiMvcAttendance.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\R2kDoiMvcBilling.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>R2kDoiMvcBilling.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Views\Shared\Services.Master" />
+    <Content Include="Views\Shared\Billing.Master" />
+    <None Include="stOutcome.xsd" />
+    <None Include="waOutcome.xsd" />
+    <None Include="weOutcome.xsd" />
+    <Content Include="Views\Shared\Authorizations.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\busy.gif" />
+    <Content Include="Content\default.css" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\humanity\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\humanity\images\ui-bg_glass_100_f5f0e5_1x400.png" />
+    <Content Include="Content\humanity\images\ui-bg_glass_25_cb842e_1x400.png" />
+    <Content Include="Content\humanity\images\ui-bg_glass_70_ede4d4_1x400.png" />
+    <Content Include="Content\humanity\images\ui-bg_highlight-hard_100_f4f0ec_1x100.png" />
+    <Content Include="Content\humanity\images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="Content\humanity\images\ui-bg_highlight-hard_75_f5f5b5_1x100.png" />
+    <Content Include="Content\humanity\images\ui-bg_inset-soft_100_f4f0ec_1x100.png" />
+    <Content Include="Content\humanity\images\ui-icons_c47a23_256x240.png" />
+    <Content Include="Content\humanity\images\ui-icons_cb672b_256x240.png" />
+    <Content Include="Content\humanity\images\ui-icons_f08000_256x240.png" />
+    <Content Include="Content\humanity\images\ui-icons_f35f07_256x240.png" />
+    <Content Include="Content\humanity\images\ui-icons_ff7519_256x240.png" />
+    <Content Include="Content\humanity\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\humanity\jquery-ui-1.7.2.custom.css" />
+    <Content Include="Content\imgs\bg.png" />
+    <Content Include="Content\imgs\bottem.png" />
+    <Content Include="Content\imgs\checked.gif" />
+    <Content Include="Content\imgs\logo.png" />
+    <Content Include="Content\imgs\middle.png" />
+    <Content Include="Content\imgs\top.png" />
+    <Content Include="Content\imgs\un-checked.gif" />
+    <Content Include="Content\menu.css" />
+    <Content Include="Content\paperclip.jpg" />
+    <Content Include="Content\print.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\smoothness\jquery-ui-1.8.5.custom.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Messages\Authorization.xslt" />
+    <Content Include="Messages\AuthorizationSubject.txt" />
+    <Content Include="Messages\ServiceSubject.txt" />
+    <Content Include="Messages\Service.xslt" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\Service.js" />
+    <Content Include="stOutcome.xslt" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-ui-1.7.2.custom.min.js" />
+    <Content Include="Views\Address\Create.aspx" />
+    <Content Include="Views\Address\Details.aspx" />
+    <Content Include="Views\Address\Form.ascx" />
+    <Content Include="Views\Address\Edit.aspx" />
+    <Content Include="Views\Address\Index.aspx" />
+    <Content Include="Views\Admin\Index.aspx" />
+    <Content Include="Views\Alert\Index.ascx" />
+    <Content Include="Views\Attendances\Absent.ascx" />
+    <Content Include="Views\Attendances\AbsentEdit.ascx" />
+    <Content Include="Views\Attendances\Edit.aspx" />
+    <Content Include="Views\Attendances\Create.aspx" />
+    <Content Include="Views\Attendances\Index.aspx" />
+    <Content Include="Views\Attendances\Program.aspx" />
+    <Content Include="Views\Authorizations\AddDetail.aspx" />
+    <Content Include="Views\Authorizations\AddDetails.aspx" />
+    <Content Include="Views\Authorizations\Approve.aspx" />
+    <Content Include="Views\Authorizations\AuthorizationsByClosedReferrals.aspx" />
+    <Content Include="Views\Authorizations\AuthorizationList.ascx" />
+    <Content Include="Views\Authorizations\AuthorizationsByOpenReferrals.aspx" />
+    <Content Include="Views\Authorizations\Completed.aspx" />
+    <Content Include="Views\Authorizations\Create.aspx" />
+    <Content Include="Views\Authorizations\Details.aspx" />
+    <Content Include="Views\Authorizations\Edit.aspx" />
+    <Content Include="Views\Authorizations\EditDetails.aspx" />
+    <Content Include="Views\Authorizations\InProgress.aspx" />
+    <Content Include="Views\Authorizations\NewAuthorizations.aspx" />
+    <Content Include="Views\Authorizations\ServiceList.ascx" />
+    <Content Include="Views\Authorizations\AuthorizationDetails.ascx" />
+    <Content Include="Views\Billings\Accept.aspx" />
+    <Content Include="Views\Billings\Accepted.aspx" />
+    <Content Include="Views\Billings\Approve.aspx" />
+    <Content Include="Views\Billings\Backup.aspx" />
+    <Content Include="Views\Billings\BillingList.ascx" />
+    <Content Include="Views\Billings\BillingOfficeView.aspx" />
+    <Content Include="Views\Billings\Create.aspx" />
+    <Content Include="Views\Billings\Details.aspx" />
+    <Content Include="Views\Billings\Details1.aspx" />
+    <Content Include="Views\Billings\BillingDetails.ascx" />
+    <Content Include="Views\Billings\Index.aspx" />
+    <Content Include="Views\Billings\ManagerView.aspx" />
+    <Content Include="Views\Billings\Start.aspx" />
+    <Content Include="Views\Billings\Void.aspx" />
+    <Content Include="Views\Companys\Add.aspx" />
+    <Content Include="Views\Companys\Detail.aspx" />
+    <Content Include="Views\Companys\Edit.aspx" />
+    <Content Include="Views\Companys\Index.aspx" />
+    <Content Include="Views\Contact\Create.aspx" />
+    <Content Include="Views\Contact\Details.aspx" />
+    <Content Include="Views\Contact\Edit.aspx" />
+    <Content Include="Views\Contact\Index.aspx" />
+    <Content Include="Views\Disability\Create.aspx" />
+    <Content Include="Views\Disability\Delete.aspx" />
+    <Content Include="Views\Disability\Edit.aspx" />
+    <Content Include="Views\Fees\Create.aspx" />
+    <Content Include="Views\Fees\Delete.aspx" />
+    <Content Include="Views\Fees\Details.aspx" />
+    <Content Include="Views\Fees\Edit.aspx" />
+    <Content Include="Views\Fees\Index.aspx" />
+    <Content Include="Views\Fees\ViewPage1.aspx" />
+    <Content Include="Views\FundingSource\AssignFee.aspx" />
+    <Content Include="Views\FundingSource\AssignFeebook.ascx" />
+    <Content Include="Views\FundingSource\Create.aspx" />
+    <Content Include="Views\FundingSource\Details.aspx" />
+    <Content Include="Views\FundingSource\Edit.aspx" />
+    <Content Include="Views\FundingSource\Index.aspx" />
+    <Content Include="Views\FundingSource\Invalid.aspx" />
+    <Content Include="Views\FundingSource\NewCounsler.aspx" />
+    <Content Include="Views\FundingSource\ReferringCounslers.ascx" />
+    <Content Include="Views\IncomeSources\Index.aspx" />
+    <Content Include="Views\Income\Edit.aspx" />
+    <Content Include="Views\Income\Index.aspx" />
+    <Content Include="Views\info\AddMisc.aspx" />
+    <Content Include="Views\info\Attendance.aspx" />
+    <Content Include="Views\info\Create.aspx" />
+    <Content Include="Views\info\CreateAndEnrollNewConsumer.aspx" />
+    <Content Include="Views\info\Details.aspx" />
+    <Content Include="Views\info\Edit.aspx" />
+    <Content Include="Views\info\FlagConsumer.ascx" />
+    <Content Include="Views\info\Index.aspx" />
+    <Content Include="Views\info\Misc.aspx" />
+    <Content Include="Views\info\MiscEdit.aspx" />
+    <Content Include="Views\info\MiscForm.ascx" />
+    <Content Include="Views\Locations\Create.aspx" />
+    <Content Include="Views\Locations\Details.aspx" />
+    <Content Include="Views\Locations\Edit.aspx" />
+    <Content Include="Views\Locations\Index.aspx" />
+    <Content Include="Views\Fees\Form.ascx" />
+    <Content Include="Views\Notes\Create.aspx" />
+    <Content Include="Views\Notes\Details.aspx" />
+    <Content Include="Views\Notes\Inactive.aspx" />
+    <Content Include="Views\Notes\Index.aspx" />
+    <Content Include="Views\Notes\IndexOld.aspx" />
+    <Content Include="Views\Placements\Company.aspx" />
+    <Content Include="Views\Placements\Create.aspx" />
+    <Content Include="Views\Placements\CreateCompany.aspx" />
+    <Content Include="Views\Placements\Details.aspx" />
+    <Content Include="Views\Placements\Edit.aspx" />
+    <Content Include="Views\Placements\Index.aspx" />
+    <None Include="ddsOutcome.xsc">
+      <DependentUpon>ddsOutcome.xsd</DependentUpon>
+    </None>
+    <None Include="ddsOutcome.xss">
+      <DependentUpon>ddsOutcome.xsd</DependentUpon>
+    </None>
+    <None Include="jcOutcome.xsd" />
+    <None Include="infopath.xsd" />
+    <None Include="infopath1.xsd" />
+    <None Include="PdOutcome.xsd" />
+    <None Include="Views\Placements\Create.bad">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <Content Include="Views\Products\Create.aspx" />
+    <Content Include="Views\Products\Details.aspx" />
+    <Content Include="Views\Products\Form.ascx" />
+    <Content Include="Views\Products\Edit.aspx" />
+    <Content Include="Views\Products\Index.aspx" />
+    <Content Include="Views\Profile\Create.aspx" />
+    <Content Include="Views\Profile\Details.aspx" />
+    <Content Include="Views\Profile\Edit.aspx" />
+    <Content Include="Views\Profile\Index.aspx" />
+    <Content Include="Views\Profile\myPermissions.aspx" />
+    <Content Include="Views\Programs\addoutcome.ascx" />
+    <Content Include="Views\Programs\Create.aspx" />
+    <Content Include="Views\Programs\Edit.aspx" />
+    <Content Include="Views\Programs\EditInstance.ascx" />
+    <Content Include="Views\Programs\EditInstance.old.aspx" />
+    <Content Include="Views\Programs\Form.ascx" />
+    <Content Include="Views\Programs\Details.aspx" />
+    <Content Include="Views\Programs\Index.aspx" />
+    <Content Include="Views\Programs\InstanceForm.ascx" />
+    <Content Include="Views\Programs\InstanceList.ascx" />
+    <Content Include="Views\Programs\NewInstance.aspx" />
+    <Content Include="Views\Programs\removeoutcome.ascx" />
+    <Content Include="Views\Referral\AddAdmin.aspx" />
+    <Content Include="Views\Referral\AddNonBillable.ascx" />
+    <Content Include="Views\Referral\Address.ascx" />
+    <Content Include="Views\Referral\Authorizations.ascx" />
+    <Content Include="Views\Referral\Close.ascx" />
+    <Content Include="Views\Referral\Copy of Index.aspx" />
+    <Content Include="Views\Referral\DDS.aspx" />
+    <Content Include="Views\Referral\jc.aspx" />
+    <Content Include="Views\Referral\MiscForm.ascx" />
+    <Content Include="Views\Referral\NewDDS.aspx" />
+    <Content Include="Views\Shared\DDSOutcome.ascx" />
+    <Content Include="Views\Referral\NewDS.aspx" />
+    <Content Include="Views\Referral\Newjc.aspx" />
+    <Content Include="Views\Referral\NewServiceOutcome.ascx" />
+    <Content Include="Views\Referral\Open.ascx" />
+    <Content Include="Views\Referral\Outcome.aspx" />
+    <Content Include="Views\Referral\Contact.ascx" />
+    <Content Include="Views\Referral\Create.aspx" />
+    <Content Include="Views\Referral\Details.aspx" />
+    <Content Include="Views\Referral\Disability.ascx" />
+    <Content Include="Views\Referral\Edit.aspx" />
+    <Content Include="Views\Referral\Folder.ascx" />
+    <Content Include="Views\Referral\Index.aspx" />
+    <Content Include="Views\Referral\JSSt.aspx" />
+    <Content Include="Views\Referral\NewAuthorization.aspx" />
+    <Content Include="Views\Referral\NewJSST.aspx" />
+    <Content Include="Views\Referral\NewPd.aspx" />
+    <Content Include="Views\Referral\NewReferralFrom.aspx" />
+    <Content Include="Views\Referral\NewSkillsTraining.aspx" />
+    <Content Include="Views\Referral\NewWorkAdjustment.aspx" />
+    <Content Include="Views\Referral\newWorkEval.aspx" />
+    <Content Include="Views\Referral\Pd.aspx" />
+    <Content Include="Views\Referral\PrintProgramOutcome.aspx" />
+    <Content Include="Views\Referral\ReAssignService.ascx" />
+    <Content Include="Views\Referral\Reports.ascx" />
+    <Content Include="Views\Referral\SkillsTraining.aspx" />
+    <Content Include="Views\Referral\WorkAdjustment.aspx" />
+    <Content Include="Views\Referral\WorkEval.aspx" />
+    <Content Include="Views\ReferringCounslers\Delete.aspx" />
+    <Content Include="Views\ReferringCounslers\Edit.aspx" />
+    <Content Include="Views\ReferringCounslers\Index.aspx" />
+    <Content Include="Views\RegisteredUsers\ActiveUsers.aspx" />
+    <Content Include="Views\RegisteredUsers\Create.aspx" />
+    <Content Include="Views\RegisteredUsers\Details.aspx" />
+    <Content Include="Views\RegisteredUsers\Edit.aspx" />
+    <Content Include="Views\RegisteredUsers\Index.aspx" />
+    <Content Include="Views\Reports\Create.aspx" />
+    <Content Include="Views\Reports\Details.aspx" />
+    <Content Include="Views\Reports\Edit.aspx" />
+    <Content Include="Views\Reports\Index.aspx" />
+    <Content Include="Views\ServiceOutcomes\Create.aspx" />
+    <Content Include="Views\ServiceOutcomes\Index.aspx" />
+    <Content Include="Views\ServiceOutcomes\Remove.aspx" />
+    <Content Include="Views\Services\Accrue.aspx" />
+    <Content Include="Views\Services\Cancel.aspx" />
+    <Content Include="Views\Services\Complete.aspx" />
+    <Content Include="Views\Services\Completed.aspx" />
+    <Content Include="Views\Services\Created.aspx" />
+    <Content Include="Views\Services\ResetService.ascx" />
+    <Content Include="Views\Services\StartService.ascx" />
+    <Content Include="Views\Services\Create.aspx" />
+    <Content Include="Views\Services\Details.aspx" />
+    <Content Include="Views\Services\AssignService.aspx" />
+    <None Include="Views\Services\Edit.aspx.old">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="ddsOutcome.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <Content Include="Views\Services\Edit.ascx" />
+    <Content Include="Views\Services\EndService.ascx" />
+    <Content Include="Views\Services\InProgress.aspx" />
+    <Content Include="Views\Services\Manual.aspx" />
+    <Content Include="Views\Services\NewServices.aspx" />
+    <Content Include="Views\Services\Pending.aspx" />
+    <Content Include="Views\Services\Penny.aspx" />
+    <Content Include="Views\Services\ServiceList.ascx" />
+    <Content Include="Views\Services\SetDetails.ascx" />
+    <Content Include="Views\Services\StartServiceold.aspx" />
+    <Content Include="Views\Services\TimeWorked.ascx" />
+    <Content Include="Views\Services\ViewPage1.aspx" />
+    <Content Include="Views\Shared\AlertControl.ascx" />
+    <Content Include="Views\Shared\NewDDSold.ascx" />
+    <Content Include="Views\Shared\ReadNotes.ascx" />
+    <Content Include="Views\Shared\stOutcome.ascx" />
+    <Content Include="Views\Shared\JsstOutcome.ascx" />
+    <Content Include="Views\Shared\waOutcome.ascx" />
+    <Content Include="Views\Shared\weOutcome.ascx" />
+    <Content Include="Views\Sherwood\InfoPathUpload.aspx" />
+    <Content Include="Views\SpecialNeeds\Create.ascx" />
+    <Content Include="Views\SpecialNeeds\Index.aspx" />
+    <Content Include="Views\Supervisor\Audit.aspx" />
+    <Content Include="Views\Supervisor\Index.aspx" />
+    <Content Include="Views\Supervisor\Cases.aspx" />
+    <Content Include="Views\Supervisor\Transfer.ascx" />
+    <Content Include="Views\UnitTypes\Create.aspx" />
+    <Content Include="Views\UnitTypes\Details.aspx" />
+    <Content Include="Views\UnitTypes\Edit.aspx" />
+    <Content Include="Views\UnitTypes\Index.aspx" />
+    <Content Include="waOutcome.xslt" />
+    <Content Include="Web.config" />
+    <Content Include="Scripts\jquery-1.3.2.js" />
+    <Content Include="Scripts\jquery-1.3.2.min.js" />
+    <Content Include="Scripts\jquery-1.3.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.3.2.min-vsdoc.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Views\Account\ChangePassword.aspx" />
+    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Views\Account\LogOn.aspx" />
+    <Content Include="Views\Account\Register.aspx" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\Consumers\InfoRepository\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49381</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8080/R2kdoiMVC2</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

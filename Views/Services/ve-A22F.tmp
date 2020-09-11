@@ -1,0 +1,73 @@
+<%@ Control Language="VB" Inherits="System.Web.Mvc.ViewUserControl(Of IEnumerable (Of R2kdoiMVC.Model.Service))" %>
+    <table>
+        <tr>
+            <th colspan=2></th>
+
+            <th>
+                Product
+            </th>
+            <th>
+                Consumer
+            </th>
+            <th>
+                ServiceStartDate
+            </th>
+            <th>
+                ServiceEndDate
+            </th>
+        </tr>
+
+    <% For Each item In Model%>
+    
+        <tr>
+        
+            <td>
+                <% If item.Authorization.Referral.StatusId = 2 Then%>
+                        <span style="color:Red"><acronym title="Closed">C</acronym></span> 
+                <% Else%>        
+                        <span style="color:Green"><acronym title="Open">O</acronym></span> 
+                <% End If%>
+            </td>
+            <td>
+                <%=Html.ActionLink("Details", "Details", New With {.id = item.ServiceId})%>
+            </td>
+            <td>
+                <% If item.Product.ParentId.HasValue Then%>
+                    
+                    <%=Html.Encode(item.Product.Product.ProductName)%>               
+                
+                <%End If%>
+                
+                <%=Html.Encode(item.Product.ProductName)%>               
+            </td>
+            <td>
+                <%= item.Authorization.Referral.Info.Link()%>
+            </td>
+            <td>
+                <%If item.ServiceStartDate.HasValue Then%>
+                    <%=Html.Encode(String.Format("{0:d}", item.ServiceStartDate))%> 
+                <%Else%>
+                <div class="SelectService">
+                    <%=Html.ActionLink("Start", "StartService", New With {.id = item.ServiceId, .cm = HttpContext.Current.Request.QueryString("cm")})%>
+                </div>
+                <%End If%>
+            </td>
+            <td>
+                <div class="SelectService">
+                <%If item.ServiceEndDate.HasValue Then%>
+                    <%=item.ServiceEndDate.Value.ToShortDateString()%> 
+                <%Else%>
+                
+                    <%'Html.ActionLink("End", "EndService", New With {.id = item.ServiceId, .cm = HttpContext.Current.Request.QueryString("cm")})%>
+                
+                <%End If%>
+                </div>
+            </td>
+
+        </tr>
+    
+    <% Next%>
+
+    </table>
+
+

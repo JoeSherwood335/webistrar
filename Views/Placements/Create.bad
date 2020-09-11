@@ -1,0 +1,127 @@
+<%@ Page Title="" Language="VB" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage(Of R2kdoiMVC.Model.Placement)" %>
+
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+	New Placement 
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="HeaderContent" runat="server">
+
+        $("#PlacementDate").datepicker();
+        $("#ClosureDate").datepicker();
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <h2>New Placement</h2>
+
+    <%= Html.ValidationSummary("Create was unsuccessful. Please correct the errors and try again.") %>
+
+    <% Dim company As R2kdoiMVC.Model.Company = ViewData("Company")%>
+    <% Dim info As R2kdoiMVC.Model.Info = ViewData("Consumer")%>
+
+
+    <fieldset>
+        <legend>Company</legend>
+        <p>
+            CompanyName: <%=company.CompanyName%>
+        </p>
+        <p>
+            WebSite: <%=company.WebSite%>
+        </p>
+    </fieldset>    
+
+    <fieldset>
+        <legend>Consumer</legend>
+        <p>
+            registrarNo: <%= info.RegistrarNo%>
+        </p>
+        <p>
+            Name: <%=Html.ActionLink(String.Format("{0} {1}", info.FirstName, info.LastName), "Details", New With {.permilink = info.Permilink, .controller = "Info"})%>
+        </p>        
+        
+    </fieldset>
+    
+
+
+    <% Using Html.BeginForm()%>
+
+        <fieldset>
+            <legend>Placement</legend>
+            <p>
+                <label for="TypeId">Type:</label>
+                <%=Html.DropDownList("TypeId", CType(ViewData("PlacementTypes"), SelectList), "[Not Set]")%>
+                <%= Html.ValidationMessage("TypeId", "*") %>
+            </p>
+            <p>
+                <label for="StaffId">Staff:</label>
+                <%=Html.DropDownList("StaffId", CType(ViewData("Staffs"), SelectList), "[Not Set]")%>
+                <%= Html.ValidationMessage("StaffId", "*") %>
+            </p>
+            <p>
+                <label for="JobTitle">JobTitle:</label>
+                <%= Html.TextBox("JobTitle") %>
+                <%= Html.ValidationMessage("JobTitle", "*") %>
+            </p>
+            <p>
+                <label for="Wage">Wage:</label>
+                <%= Html.TextBox("Wage") %>
+                <%= Html.ValidationMessage("Wage", "*") %>
+            </p>
+            <p>
+                <label for="WageTypeId">Wage Type:</label>
+                <%=Html.DropDownList("WageTypeId", CType(ViewData("WageTypes"), SelectList), "[Not Set]")%>
+                <%= Html.ValidationMessage("WageTypeId", "*") %>
+            </p>
+            <p>
+                <label for="JobTypeId">Job Type:</label>
+                <%=Html.DropDownList("JobTypeId", CType(ViewData("JobTypes"), SelectList), "[Not Set]")%>
+                <%= Html.ValidationMessage("JobTypeId", "*") %>
+            </p>
+            <p>
+                <label for="HoursPerWeek">Hours Per Week:</label>
+                <%= Html.TextBox("HoursPerWeek") %>
+                <%= Html.ValidationMessage("HoursPerWeek", "*") %>
+            </p>
+            <p>
+                <label for="HasMedical">Medical:</label>
+                <%=Html.CheckBox("HasMedical")%>
+                <%= Html.ValidationMessage("HasMedical", "*") %>
+            </p>
+            <p>
+                <label for="Is90ofEmploymentPrep">Is less then 90 from Employment Prep:</label>
+                <%=Html.CheckBox("Is90ofEmploymentPrep")%>
+                <%= Html.ValidationMessage("Is90ofEmploymentPrep", "*") %>
+            </p>
+            <p>
+                <label for="IsPlacement">IsPlacement:</label>
+                <%=Html.CheckBox("IsPlacement")%>
+                <%= Html.ValidationMessage("IsPlacement", "*") %>
+            </p>
+            <p>
+                <label for="PlacementDate">PlacementDate:</label>
+                <%= Html.TextBox("PlacementDate") %>
+                <%= Html.ValidationMessage("PlacementDate", "*") %>
+            </p>
+            <p>
+                <label for="IsClosure">IsClosure:</label>
+                <%=Html.CheckBox("IsClosure")%>
+                <%= Html.ValidationMessage("IsClosure", "*") %>
+            </p>
+            <p>
+                <label for="ClosureDate">ClosureDate:</label>
+                <%= Html.TextBox("ClosureDate") %>
+                <%= Html.ValidationMessage("ClosureDate", "*") %>
+            </p>
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+
+    <% End Using %>
+
+
+
+</asp:Content>
+

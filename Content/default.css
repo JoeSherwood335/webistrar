@@ -1,0 +1,95 @@
+﻿	body{
+		background-image: url('imgs/bg.png') ;
+		font-size: xx-small ;
+	}
+
+
+	#header-outer-top{
+		margin:0px auto;
+		width:810px;
+		background-image: url('imgs/top.png'); 	
+		height: 5px;
+	} 
+	#header-outer-bottem{
+		margin:0px auto;
+		width:810px;
+		background-image: url('imgs/bottem.png'); 	
+		height: 5px;
+	} 
+	
+
+	
+	#header-outer, #content-outer, #footer-outer{
+		margin:0 auto;		
+		width:810px;
+		background-image: url('imgs/middle.png');
+	}
+
+	#header,#content,#footer{
+		padding: 5px 0px;
+		margin:0 auto;		
+		width:760px;
+		/*padding:5px 10px;*/
+		clear: both;
+		background-color: white;
+	}
+
+
+
+
+	.left_column{
+		float:left;
+		width:380px;
+		
+	}
+	.right_column{
+		margin-left:380px;
+		
+	}	
+	#header .right_column {
+		text-align: right;
+	}
+	#header .left_column span{
+		font-style: italic ;
+		font-size: xx-small ;
+}
+	#header .right_column span{
+		font-size:large ;
+		color:green;
+	}
+	fieldset {
+		height:100px;
+	}
+	
+	#content table, #content p{
+		margin:5px 0px;
+	}
+	
+	table {
+		width: 100%;
+	}
+	thead
+	{
+	border-top: 1px #aaa solid ;
+	 border-bottom  :1px #aaa solid ;
+	background-color:#eee;
+	font-weight: bold ;
+	font-size: x-small ;
+}
+tbody{font-size:x-small;} 
+
+.servicelink
+{
+	color:Black;	
+	font-variant:normal ;
+	text-decoration: none;
+		
+	
+}
+h1{font-size:175%; font-weight:normal;margin: 5px 0px;	}
+h2{font-size:150%; font-weight:normal;margin: 5px 0px;	}
+h3{font-size:125%; font-weight:normal;margin: 5px 0px;	}
+h4{font-size:115%; font-weight:normal;margin: 5px 0px;	}
+h5{font-size:100%; font-weight:normal;margin: 5px 0px;	}
+h6{font-size:90%; font-weight:normal;margin: 5px 0px;	}
+p{font-size:100%; font-weight:normal;margin: 5px 0px;	}

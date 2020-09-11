@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="R2kdoiMVC" EntityNamespace="Model.Attendance" Class="r2kdoiMvcAttendanceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=kali;Initial Catalog=R2kdoiMVC;Integrated Security=True;Application Name=Webistrar" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="R2kdoiMVCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Admin.ProgramInstance" Member="ProgramInstances">
+    <Type Name="ProgramInstance" Id="ID1">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProgramId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InstanceName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CostCenter" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SupervisorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ProgramInstance_Attendance" Member="Attendances" ThisKey="id" OtherKey="ProgramInstanceId" Type="Attendance" />
+      <Association Name="Location_ProgramInstance" Member="Location" ThisKey="LocationId" OtherKey="LocationId" Type="Location" IsForeignKey="true" />
+      <Association Name="Program_ProgramInstance" Member="Program" ThisKey="ProgramId" OtherKey="ProgramId" Type="Program" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vCalendar" Member="vCalendars">
+    <Type Name="vCalendar">
+      <Column Name="dt" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="isWeekday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isHoliday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Y" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="FY" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Q" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="M" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="D" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="DW" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="monthname" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="dayname" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="W" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="isoWeek" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ds" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.ConsumerType" Member="ConsumerTypes">
+    <Type Name="ConsumerType">
+      <Column Name="ConsumerTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ConsumerType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ConsumerType_Info" Member="Infos" ThisKey="ConsumerTypeID" OtherKey="ConsumerTypeId" Type="Info" />
+    </Type>
+  </Table>
+  <Table Name="Catalog.Locations" Member="Locations">
+    <Type Name="Location">
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LocationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAddress1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAddress2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="MainNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="TTyNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FaxNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="WebAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Location_ProgramInstance" Member="ProgramInstances" ThisKey="LocationId" OtherKey="LocationId" Type="ProgramInstance" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Programs" Member="Programs">
+    <Type Name="Program">
+      <Column Name="ProgramId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Acronym" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramDescription" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="PoTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Program_ProgramInstance" Member="ProgramInstances" ThisKey="ProgramId" OtherKey="ProgramId" Type="ProgramInstance" />
+    </Type>
+  </Table>
+  <Table Name="Admin.Attendances" Member="Attendances">
+    <Type Name="Attendance">
+      <Column Name="AttendanceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProgramInstanceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="AttendanceTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Clock" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ProgramInstance_Attendance" Member="ProgramInstance" ThisKey="ProgramInstanceId" OtherKey="id" Type="ProgramInstance" IsForeignKey="true" />
+      <Association Name="AttendanceType_Attendance" Member="AttendanceType" ThisKey="AttendanceTypeId" OtherKey="AttendanceTypeId" Type="AttendanceType" IsForeignKey="true" />
+      <Association Name="Info_Attendance" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.AttendanceTypes" Member="AttendanceTypes">
+    <Type Name="AttendanceType">
+      <Column Name="AttendanceTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AttendanceType" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="IsAbsent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="AttendanceType_Attendance" Member="Attendances" ThisKey="AttendanceTypeId" OtherKey="AttendanceTypeId" Type="Attendance" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Info" Member="Infos">
+    <Type Name="Info">
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SSN" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="REF" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConsumerTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Inputedby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Permilink" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PrefixId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SufixId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FlagForHr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Info_Attendance" Member="Attendances" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Attendance" />
+      <Association Name="ConsumerType_Info" Member="ConsumerType" ThisKey="ConsumerTypeId" OtherKey="ConsumerTypeID" Type="ConsumerType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.MyCurrentPrograms" Method="MyCurrentPrograms">
+    <Parameter Name="InputedBy" Parameter="inputedBy" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+</Database>

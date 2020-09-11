@@ -1,0 +1,63 @@
+<%@ Page Title="" Language="VB" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage(Of R2kdoiMVC.Model.Service)" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+	Edit
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <h2>Edit</h2>
+
+    <%=Html.ValidationSummary("Edit was unsuccessful. Please correct the errors and try again.")%>
+
+    <% Using Html.BeginForm() %>
+
+        <fieldset>
+            <legend>Edit</legend>
+              
+            <p>
+                <label for="ProductId">Service Name:</label>
+                <%=Html.DropDownList("ProductId", Model.GetProductsSelectList())%>
+                <%=Html.ValidationMessage("ProductId", "*")%>
+               
+            </p>
+            <p>
+                <label for="NumberOfUnits">Number Of Units:</label>
+                <%= Html.TextBox("NumberOfUnits") %> <span id="auto"><a href="#">auto</a></span>
+                <%= Html.ValidationMessage("NumberOfUnits", "*") %>
+            </p>
+            <p>
+                <label for="AssignedTo">AssignedTo:</label>
+                <%=Html.DropDownList("AssignedTo", Model.GetAssignedTo, "[not set]")%>
+                <%= Html.ValidationMessage("AssignedTo", "*") %>
+            </p>
+            <p>
+                <label for="ServiceStartDate">Start Date:</label>
+                <%=Html.TextBox("ServiceStartDate", String.Format("{0:d}", Model.ServiceStartDate))%>
+                <%= Html.ValidationMessage("ServiceStartDate", "*") %>
+            </p>
+            <p>
+                <label for="ServiceEndDate">End Date:</label>
+                <%=Html.TextBox("ServiceEndDate", String.Format("{0:d}", Model.ServiceEndDate))%>
+                <%= Html.ValidationMessage("ServiceEndDate", "*") %>
+            </p>
+            <p>
+            <%=Html.Hidden("rs")%>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+
+
+
+
+    <% End Using %>
+
+    <div>
+        <%=Html.ActionLink("Back to List", "Index") %>
+    </div>
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="HeaderContent" runat="server">
+</asp:Content>
+

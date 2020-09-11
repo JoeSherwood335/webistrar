@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.5, 8.5" name="r2kdoiMvcAttendance">
+  <DataContextMoniker Name="/r2kdoiMvcAttendanceDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ab9f7788-814b-4cf1-9ae9-b8235dc308e6" absoluteBounds="2.625, 1.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/r2kdoiMvcAttendanceDataContext/ProgramInstance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="508fa3d8-ff81-4286-9e34-b65d501ebbd3" absoluteBounds="2.6400000000000006, 1.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b7f946cf-8868-4df9-b6be-828fcc3a3778" absoluteBounds="10.25, 1.125, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/r2kdoiMvcAttendanceDataContext/vCalendar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a79e1466-e871-44fb-a8c5-172974cee8cf" absoluteBounds="10.265, 1.585, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c726fd3c-ba7d-4044-9037-90a0add713df" isExpanded="false" absoluteBounds="8, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/r2kdoiMvcAttendanceDataContext/ConsumerType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90bf79b7-d7c1-4b32-a93f-304d64d48104" absoluteBounds="8.015, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="72ee6d7c-eb6a-4a92-99df-9b749de2c4bf" absoluteBounds="2.625, 4, 2, 3.1170068359375">
+      <DataClassMoniker Name="/r2kdoiMvcAttendanceDataContext/Location" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccd64890-c162-42f5-8bb6-f39f2efbd6bf" absoluteBounds="2.64, 4.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.625 : 4); (3.625 : 3.40549967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/r2kdoiMvcAttendanceDataContext/Location/Location_ProgramInstance" />
+      <nodes>
+        <classShapeMoniker Id="72ee6d7c-eb6a-4a92-99df-9b749de2c4bf" />
+        <classShapeMoniker Id="ab9f7788-814b-4cf1-9ae9-b8235dc308e6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b5a1258c-0906-412e-83aa-e62d1d4f8f67" absoluteBounds="5.875, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/r2kdoiMvcAttendanceDataContext/Program" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca2d84c0-059d-4251-8e8c-eb5226cdec5c" absoluteBounds="5.89, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 2.04409912109375); (4.625 : 2.04409912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/r2kdoiMvcAttendanceDataContext/Program/Program_ProgramInstance" />
+      <nodes>
+        <classShapeMoniker Id="b5a1258c-0906-412e-83aa-e62d1d4f8f67" />
+        <classShapeMoniker Id="ab9f7788-814b-4cf1-9ae9-b8235dc308e6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c27edab1-74b9-4b0a-931e-1525861316b2" absoluteBounds="5.25, 3.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/r2kdoiMvcAttendanceDataContext/Attendance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9c51a27-207a-486a-919d-63ecd3b78b4a" absoluteBounds="5.265, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.625 : 3.15309895833333); (5.53125 : 3.15309895833333); (5.53125 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/r2kdoiMvcAttendanceDataContext/ProgramInstance/ProgramInstance_Attendance" />
+      <nodes>
+        <classShapeMoniker Id="ab9f7788-814b-4cf1-9ae9-b8235dc308e6" />
+        <classShapeMoniker Id="c27edab1-74b9-4b0a-931e-1525861316b2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4de23439-fb5a-40f3-8e49-01bf5e8419fb" absoluteBounds="8.875, 5.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/r2kdoiMvcAttendanceDataContext/AttendanceType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dee6eadf-3649-4de5-8128-ee72cde757a1" absoluteBounds="8.89, 6.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.875 : 6.66270182291667); (6.25 : 6.66270182291667); (6.25 : 5.90549967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/r2kdoiMvcAttendanceDataContext/AttendanceType/AttendanceType_Attendance" />
+      <nodes>
+        <classShapeMoniker Id="4de23439-fb5a-40f3-8e49-01bf5e8419fb" />
+        <classShapeMoniker Id="c27edab1-74b9-4b0a-931e-1525861316b2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="98ae115b-daa5-4487-8211-d2fee8017881" isExpanded="false" absoluteBounds="8.125, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/r2kdoiMvcAttendanceDataContext/Info" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c194a30b-0ac5-4c70-8dfb-2c9abdb56209" absoluteBounds="8.14, 2.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.125 : 2.2); (9.125 : 3.5); (8.64583333333333 : 3.5 : JumpStart); (8.47916666666667 : 3.5 : JumpEnd); (7.75 : 3.5); (7.75 : 4.82774983723958); (7.25 : 4.82774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/r2kdoiMvcAttendanceDataContext/Info/Info_Attendance" />
+      <nodes>
+        <classShapeMoniker Id="98ae115b-daa5-4487-8211-d2fee8017881" />
+        <classShapeMoniker Id="c27edab1-74b9-4b0a-931e-1525861316b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5625 : 3.75); (8.5625 : 2.2)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/r2kdoiMvcAttendanceDataContext/ConsumerType/ConsumerType_Info" />
+      <nodes>
+        <classShapeMoniker Id="c726fd3c-ba7d-4044-9037-90a0add713df" />
+        <classShapeMoniker Id="98ae115b-daa5-4487-8211-d2fee8017881" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="R2kdoiMVC.Model.ProgramOutcomes.WeOutcome">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAQAAIAAAAAAAAQAACAAAAAAAAAAgAAAAABBAAAAAA=</HashCode>
+      <FileName>Models\ProgramOutcomes\WeOutcome.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="R2kdoiMVC.JsstDDL" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAIAAAAAAgAJAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Models\ProgramOutcomes\JsstDDL.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

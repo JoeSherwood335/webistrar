@@ -1,0 +1,27 @@
+﻿<%@ Master Language="VB" Inherits="System.Web.Mvc.ViewMasterPage" MasterPageFile="~/Views/Shared/Site.Master" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <ul id="menu"> 
+        <li><%=Html.ActionLink("StaffView", "Index", "Billings", New With {.sstatus = "Accrued"}, Nothing)%></li>             
+        <li><%=Html.ActionLink("ManagerView", "ManagerView", "Billings")%></li>             
+        <li><%=Html.ActionLink("BillingOfficeView", "BillingOfficeView", "Billings")%></li>
+        <li><%=Html.ActionLink("Bills Accepted", "Accepted", "Billings")%></li>
+   </ul>
+     <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+     </asp:ContentPlaceHolder>
+</asp:Content>
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="HeaderContent" runat="server">
+
+     <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+        
+     </asp:ContentPlaceHolder>
+</asp:Content>

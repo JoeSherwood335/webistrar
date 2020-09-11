@@ -1,0 +1,9 @@
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\obj\Debug\R2kdoiMVC.Resources.resources
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\obj\Debug\R2kdoiMVC.vbproj.GenerateResource.Cache
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\bin\R2kdoiMVC.dll
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\bin\R2kdoiMVC.pdb
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\bin\R2kdoiMVC.xml
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\obj\Debug\R2kdoiMVC.dll
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\obj\Debug\R2kdoiMVC.xml
+C:\Users\sherwood\Documents\Visual Studio 2008\Projects\R2kdoiMVC\R2kdoiMVC\obj\Debug\R2kdoiMVC.pdb

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:vgs:we" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProgramOutcomes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="WasVocationalGoalDetermined" type="xs:boolean" />
+        <xs:element name="Goal" type="xs:string" />
+        <xs:element name="GoalAccepted" type="xs:boolean" />
+        <xs:element name="Note" type="xs:string" />
+        <xs:element name="Name" />
+      </xs:sequence>
+      <xs:attribute name="CompletedBy" type="xs:string" use="required" />
+      <xs:attribute name="type" type="xs:string" use="required" />
+      <xs:attribute name="ed" type="xs:string" use="required" />
+      <xs:attribute name="version" type="xs:decimal" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

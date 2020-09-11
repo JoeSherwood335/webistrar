@@ -1,0 +1,992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="R2kdoiMVC" EntityNamespace="Model" Class="R2kdoiMVCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=kali;Initial Catalog=R2kdoiMVC;Integrated Security=True;Application Name=Webistrar" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="R2kdoiMVCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Admin.AssignFeesContainers" Member="AssignFeesContainers">
+    <Type Name="AssignFeesContainer">
+      <Column Name="FundingSourceId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FeeSchedualId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="FundingSource_AssignFeesContainer" Member="FundingSource" ThisKey="FundingSourceId" OtherKey="FundingSourceId" Type="FundingSource" IsForeignKey="true" />
+      <Association Name="Main_AssignFeesContainer" Member="Main" ThisKey="FeeSchedualId" OtherKey="MainId" Type="Main" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].FundingSources" Member="FundingSources">
+    <Type Name="FundingSource">
+      <Column Name="FundingSourceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Acronym" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="discontinued" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="FundingSource_AssignFeesContainer" Member="AssignFeesContainers" ThisKey="FundingSourceId" OtherKey="FundingSourceId" Type="AssignFeesContainer" />
+      <Association Name="FundingSource_ReferringCounselor" Member="ReferringCounselors" ThisKey="FundingSourceId" OtherKey="FundingSourceId" Type="ReferringCounselor" />
+    </Type>
+  </Table>
+  <Table Name="[Case].PSCFoodSchedual" Member="PSCFoodScheduals">
+    <Type Name="PSCFoodSchedual">
+      <Column Name="PSCSchedualID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="Monday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MondayStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MondayEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MondayBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MondayLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tuesday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TuesdayStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TuesdayEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TuesdayBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TuesdayLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Wednesday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WednesdayStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WednesdayEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WednesdayBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WednesdayLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Thursday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ThursdayStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThursdayEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThursdayBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ThursdayLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Friday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FridayStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FridayEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FridayBreakfast" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FridayLunch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].ReferringCounselors" Member="ReferringCounselors">
+    <Type Name="ReferringCounselor">
+      <Column Name="ReferringCounselorId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RepCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FundingSourceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldContactId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ud" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ReferringCounselor_Authorization" Member="Authorizations" ThisKey="ReferringCounselorId" OtherKey="FundingCounslerId" Type="Authorization" />
+      <Association Name="ReferringCounselor_Referral" Member="Referrals" ThisKey="ReferringCounselorId" OtherKey="ReferingCounslerId" Type="Referral" />
+      <Association Name="FundingSource_ReferringCounselor" Member="FundingSource" ThisKey="FundingSourceId" OtherKey="FundingSourceId" Type="FundingSource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Catalog.Locations" Member="Locations">
+    <Type Name="Location">
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LocationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAddress1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAddress2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="MainNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="TTyNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FaxNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="WebAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Location_Fee" Member="Fees" ThisKey="LocationId" OtherKey="LocationId" Type="Fee" />
+      <Association Name="Location_ProgramInstance" Member="ProgramInstances" ThisKey="LocationId" OtherKey="LocationId" Type="ProgramInstance" />
+    </Type>
+  </Table>
+  <Table Name="Catalog.Main" Member="Mains">
+    <Type Name="Main">
+      <Column Name="MainId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FeeSchedualName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpiredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Main_AssignFeesContainer" Member="AssignFeesContainers" ThisKey="MainId" OtherKey="FeeSchedualId" Type="AssignFeesContainer" />
+      <Association Name="Main_Fee" Member="Fees" ThisKey="MainId" OtherKey="MainId" Type="Fee" />
+    </Type>
+  </Table>
+  <Table Name="Catalog.UnitTypes" Member="UnitTypes">
+    <Type Name="UnitType">
+      <Column Name="UnitTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UnitType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Orderby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UnitType_Authorization" Member="Authorizations" ThisKey="UnitTypeId" OtherKey="UnitTypeId" Type="Authorization" />
+      <Association Name="UnitType_Fee" Member="Fees" ThisKey="UnitTypeId" OtherKey="UnitTypeId" Type="Fee" />
+      <Association Name="UnitType_Service" Member="Services" ThisKey="UnitTypeId" OtherKey="UnitTypeId" Type="Service" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="AddressID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="StreetAddress1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAddress2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="RegisteredUser_Address" Member="RegisteredUser" ThisKey="InputedBy" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="Info_Address" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Dependent" Member="Dependents">
+    <Type Name="Dependent">
+      <Column Name="DependentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="DependentName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DependentGenderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DependentDOP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DependentRelationshipID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="DependentGender_Dependent" Member="DependentGender" ThisKey="DependentGenderId" OtherKey="DependGenderId" Type="DependentGender" IsForeignKey="true" />
+      <Association Name="DependentRelationShip_Dependent" Member="DependentRelationShip" ThisKey="DependentRelationshipID" OtherKey="DependentRelationshipId" Type="DependentRelationShip" IsForeignKey="true" />
+      <Association Name="Info_Dependent" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Education" Member="Educations">
+    <Type Name="Education">
+      <Column Name="EducationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="EducationTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateFrom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EducationOutcomeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="EducationOutcome_Education" Member="EducationOutcome" ThisKey="EducationOutcomeId" OtherKey="EducationOutcomeId" Type="EducationOutcome" IsForeignKey="true" />
+      <Association Name="EducationType_Education" Member="EducationType" ThisKey="EducationTypeId" OtherKey="EducationTypeId" Type="EducationType" IsForeignKey="true" />
+      <Association Name="Info_Education" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.ConsumerType" Member="ConsumerTypes">
+    <Type Name="ConsumerType">
+      <Column Name="ConsumerTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ConsumerType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ConsumerType_Info" Member="Infos" ThisKey="ConsumerTypeID" OtherKey="ConsumerTypeId" Type="Info" />
+    </Type>
+  </Table>
+  <Table Name="Options.ContactInfoType" Member="ContactInfoTypes">
+    <Type Name="ContactInfoType">
+      <Column Name="ContactInfoTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContactInfoType" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="ContactInfoType_Contact" Member="Contacts" ThisKey="ContactInfoTypeId" OtherKey="ContactInfoTypeId" Type="Contact" />
+    </Type>
+  </Table>
+  <Table Name="Options.ContactType" Member="ContactTypes">
+    <Type Name="ContactType">
+      <Column Name="ContactTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContactType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="ContactType_Contact" Member="Contacts" ThisKey="ContactTypeID" OtherKey="ContactTypeId" Type="Contact" />
+    </Type>
+  </Table>
+  <Table Name="Options.CRPServiceRequested" Member="CRPServiceRequesteds">
+    <Type Name="CRPServiceRequested">
+      <Column Name="ServiceRequestedId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceRepuested" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CRPServiceRequested_Referral" Member="Referrals" ThisKey="ServiceRequestedId" OtherKey="ServiceRequested" Type="Referral" />
+    </Type>
+  </Table>
+  <Table Name="Options.DependentGender" Member="DependentGenders">
+    <Type Name="DependentGender">
+      <Column Name="DependGenderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DependGender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="DependentGender_Dependent" Member="Dependents" ThisKey="DependGenderId" OtherKey="DependentGenderId" Type="Dependent" />
+    </Type>
+  </Table>
+  <Table Name="Options.DependentRelationShip" Member="DependentRelationShips">
+    <Type Name="DependentRelationShip">
+      <Column Name="DependentRelationshipId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RelationShip" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="DependentRelationShip_Dependent" Member="Dependents" ThisKey="DependentRelationshipId" OtherKey="DependentRelationshipID" Type="Dependent" />
+    </Type>
+  </Table>
+  <Table Name="Options.DisabilityOrderTypes" Member="DisabilityOrderTypes">
+    <Type Name="DisabilityOrderType">
+      <Column Name="DisabilityOrderTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DisabilityOrderType" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="DisabilityOrderType_Disability" Member="Disabilities" ThisKey="DisabilityOrderTypeID" OtherKey="TypeId" Type="Disability" />
+    </Type>
+  </Table>
+  <Table Name="Options.EducationOutcome" Member="EducationOutcomes">
+    <Type Name="EducationOutcome">
+      <Column Name="EducationOutcomeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EducationOutcome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="EducationOutcome_Education" Member="Educations" ThisKey="EducationOutcomeId" OtherKey="EducationOutcomeId" Type="Education" />
+    </Type>
+  </Table>
+  <Table Name="Options.EducationType" Member="EducationTypes">
+    <Type Name="EducationType">
+      <Column Name="EducationTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EducatonType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="EducationType_Education" Member="Educations" ThisKey="EducationTypeId" OtherKey="EducationTypeId" Type="Education" />
+    </Type>
+  </Table>
+  <Table Name="Options.Gender" Member="Genders">
+    <Type Name="Gender">
+      <Column Name="GenderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Gender_Misc" Member="Miscs" ThisKey="GenderID" OtherKey="GenderId" Type="Misc" />
+    </Type>
+  </Table>
+  <Table Name="Options.MaritalStatus" Member="MaritalStatus">
+    <Type Name="MaritalStatus">
+      <Column Name="MaritalStatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaritalStatus" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Orderby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="MaritalStatus_Misc" Member="Miscs" ThisKey="MaritalStatusID" OtherKey="MaritalStatusId" Type="Misc" />
+    </Type>
+  </Table>
+  <Table Name="Options.SubstanceAbuse" Member="SubstanceAbuses">
+    <Type Name="SubstanceAbuse">
+      <Column Name="SubstanceAbuseId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SubstanceAbuse" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SubstanceAbuse_Misc" Member="Miscs" ThisKey="SubstanceAbuseId" OtherKey="SubstanceAbuseHistoryId" Type="Misc" />
+    </Type>
+  </Table>
+  <Table Name="Options.Transportation" Member="Transportations">
+    <Type Name="Transportation">
+      <Column Name="TransportationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Transportation" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Transportation_Misc" Member="Miscs" ThisKey="TransportationId" OtherKey="TransportationId" Type="Misc" />
+    </Type>
+  </Table>
+  <Table Name="Catalog.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ProductDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ParentId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discontinued" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Product_Product" Member="Products" ThisKey="ProductId" OtherKey="ParentId" Type="Product" />
+      <Association Name="Product_Fee" Member="Fees" ThisKey="ProductId" OtherKey="ProductId" Type="Fee" />
+      <Association Name="Product_Service" Member="Services" ThisKey="ProductId" OtherKey="ProductId" Type="Service" />
+      <Association Name="Product_Product" Member="Product" ThisKey="ParentId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Authorizations" Member="Authorizations">
+    <Type Name="Authorization">
+      <Column Name="AuthorizationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReferralId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuthorizationNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AuthorizationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FundingCounslerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalAmountAuthorized" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TotalUnitsAuthorized" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ApproveById" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApprovedByDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OldId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Authorization_Service" Member="Services" ThisKey="AuthorizationID" OtherKey="AuthorizationId" Type="Service" />
+      <Association Name="ReferringCounselor_Authorization" Member="FundingCounselor" Storage="_ReferringCounselor" ThisKey="FundingCounslerId" OtherKey="ReferringCounselorId" Type="ReferringCounselor" IsForeignKey="true" />
+      <Association Name="UnitType_Authorization" Member="UnitType" ThisKey="UnitTypeId" OtherKey="UnitTypeId" Type="UnitType" IsForeignKey="true" />
+      <Association Name="Referral_Authorization" Member="Referral" ThisKey="ReferralId" OtherKey="ReferralId" Type="Referral" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Authorization" Member="RegisteredUser" ThisKey="InputedBy" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Disability" Member="Disabilities">
+    <Type Name="Disability">
+      <Column Name="DisabilityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="DisabilityTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SD" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="DisabilityOrderType_Disability" Member="DisabilityOrderType" ThisKey="TypeId" OtherKey="DisabilityOrderTypeID" Type="DisabilityOrderType" IsForeignKey="true" />
+      <Association Name="DisabilityType_Disability" Member="DisabilityType" ThisKey="DisabilityTypeID" OtherKey="ID" Type="DisabilityType" IsForeignKey="true" />
+      <Association Name="Info_Disability" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.DisabilityTypes" Member="DisabilityTypes">
+    <Type Name="DisabilityType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="DisabilityType_Disability" Member="Disabilities" ThisKey="ID" OtherKey="DisabilityTypeID" Type="Disability" />
+    </Type>
+  </Table>
+  <Table Name="Options.PoliceRecordType" Member="PoliceRecordTypes">
+    <Type Name="PoliceRecordType">
+      <Column Name="PoliceRecordTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PoliceRecordType" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PoliceRecordType_Misc" Member="Miscs" ThisKey="PoliceRecordTypeId" OtherKey="PoliceRecordId" Type="Misc" />
+    </Type>
+  </Table>
+  <Table Name="Catalog.Fees" Member="Fees">
+    <Type Name="Fee">
+      <Column Name="FeeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MainId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MinUnits" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MinUnitTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="UnitType_Fee" Member="UnitType" ThisKey="UnitTypeId" OtherKey="UnitTypeId" Type="UnitType" IsForeignKey="true" />
+      <Association Name="Location_Fee" Member="Location" ThisKey="LocationId" OtherKey="LocationId" Type="Location" IsForeignKey="true" />
+      <Association Name="Main_Fee" Member="Main" ThisKey="MainId" OtherKey="MainId" Type="Main" IsForeignKey="true" />
+      <Association Name="Product_Fee" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Fee" Member="RegisteredUser" ThisKey="InputedBy" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Reports" Member="Reports">
+    <Type Name="Report">
+      <Column Name="ReportsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReferralId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReportName" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportContent" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ReportStatusId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ReportType_Report" Member="ReportType" ThisKey="ReportTypeId" OtherKey="ReportTypeId" Type="ReportType" IsForeignKey="true" />
+      <Association Name="ReportStatus_Report" Member="ReportStatus" ThisKey="ReportStatusId" OtherKey="ReportStatusId" Type="ReportStatus" IsForeignKey="true" />
+      <Association Name="Referral_Report" Member="Referral" ThisKey="ReferralId" OtherKey="ReferralId" Type="Referral" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.ReportTypes" Member="ReportTypes">
+    <Type Name="ReportType">
+      <Column Name="ReportTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ReportType_Report" Member="Reports" ThisKey="ReportTypeId" OtherKey="ReportTypeId" Type="Report" />
+    </Type>
+  </Table>
+  <Table Name="Options.ReportStatuses" Member="ReportStatus">
+    <Type Name="ReportStatus">
+      <Column Name="ReportStatusId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportStatus" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ReportStatus_Report" Member="Reports" ThisKey="ReportStatusId" OtherKey="ReportStatusId" Type="Report" />
+    </Type>
+  </Table>
+  <Table Name="Options.ServiceTypes" Member="ServiceTypes">
+    <Type Name="ServiceType">
+      <Column Name="ServiceTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vCalendar" Member="vCalendars">
+    <Type Name="vCalendar">
+      <Column Name="dt" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="isWeekday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isHoliday" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Y" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="FY" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Q" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="M" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="D" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="DW" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="monthname" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="dayname" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="W" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="isoWeek" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ds" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.WageTypes" Member="WageTypes">
+    <Type Name="WageType">
+      <Column Name="WageTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WageType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="WageType_Placement" Member="Placements" ThisKey="WageTypeId" OtherKey="WageTypeId" Type="Placement" />
+    </Type>
+  </Table>
+  <Table Name="Placement.Companies" Member="Companies">
+    <Type Name="Company">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompanyShort" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WebSite" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Company_Placement" Member="Placements" ThisKey="id" OtherKey="CompanyId" Type="Placement" />
+    </Type>
+  </Table>
+  <Table Name="Options.JobTypes" Member="JobTypes">
+    <Type Name="JobType">
+      <Column Name="JobTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JobType" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="JobType_Placement" Member="Placements" ThisKey="JobTypeId" OtherKey="JobTypeId" Type="Placement" />
+    </Type>
+  </Table>
+  <Table Name="Options.PlacementTypes" Member="PlacementTypes">
+    <Type Name="PlacementType">
+      <Column Name="PlacementTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlacementType" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="PlacementType_Placement" Member="Placements" ThisKey="PlacementTypeId" OtherKey="TypeId" Type="Placement" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Incomes" Member="Incomes">
+    <Type Name="Income">
+      <Column Name="IncomeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="IncomeSourceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IncomeSourceAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="IncomeSourceAmountTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="IncomeSourceAmountType_Income" Member="IncomeSourceAmountType" ThisKey="IncomeSourceAmountTypeId" OtherKey="IncomeSourceTypeID" Type="IncomeSourceAmountType" IsForeignKey="true" />
+      <Association Name="IncomeSource_Income" Member="IncomeSource" ThisKey="IncomeSourceId" OtherKey="IncomeSourceId" Type="IncomeSource" IsForeignKey="true" />
+      <Association Name="Info_Income" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.IncomeSourceAmountType" Member="IncomeSourceAmountTypes">
+    <Type Name="IncomeSourceAmountType">
+      <Column Name="IncomeSourceTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IncomeSourceType" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="IncomeSourceAmountType_Income" Member="Incomes" ThisKey="IncomeSourceTypeID" OtherKey="IncomeSourceAmountTypeId" Type="Income" />
+    </Type>
+  </Table>
+  <Table Name="Options.IncomeSources" Member="IncomeSources">
+    <Type Name="IncomeSource">
+      <Column Name="IncomeSourceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IncomeSource" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="IncomeSource_Income" Member="Incomes" ThisKey="IncomeSourceId" OtherKey="IncomeSourceId" Type="Income" />
+    </Type>
+  </Table>
+  <Table Name="Options.ReferralStatus" Member="ReferralStatus">
+    <Type Name="ReferralStatus">
+      <Column Name="StatusId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ReferralStatus_Referral" Member="Referrals" ThisKey="StatusId" OtherKey="StatusId" Type="Referral" />
+    </Type>
+  </Table>
+  <Table Name="Options.PoTypes" Member="PoTypes">
+    <Type Name="PoType">
+      <Column Name="PoTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShortName" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Association Name="PoType_Program" Member="Programs" ThisKey="PoTypeId" OtherKey="PoTypeId" Type="Program" />
+      <Association Name="PoType_ProgramOutcome" Member="ProgramOutcomes" ThisKey="PoTypeId" OtherKey="PoTypeId" Type="ProgramOutcome" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Programs" Member="Programs">
+    <Type Name="Program">
+      <Column Name="ProgramId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Acronym" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProgramDescription" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="PoTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Program_SetServiceOutcomesforProgram" Member="SetServiceOutcomesforPrograms" ThisKey="ProgramId" OtherKey="ProgramId" Type="SetServiceOutcomesforProgram" />
+      <Association Name="Program_ProgramInstance" Member="ProgramInstances" ThisKey="ProgramId" OtherKey="ProgramId" Type="ProgramInstance" />
+      <Association Name="PoType_Program" Member="PoType" ThisKey="PoTypeId" OtherKey="PoTypeId" Type="PoType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Admin.SetServiceOutcomesforPrograms" Member="SetServiceOutcomesforPrograms">
+    <Type Name="SetServiceOutcomesforProgram">
+      <Column Name="ServiceOutcomeId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProgramId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Program_SetServiceOutcomesforProgram" Member="Program" ThisKey="ProgramId" OtherKey="ProgramId" Type="Program" IsForeignKey="true" />
+      <Association Name="ServiceOutcome_SetServiceOutcomesforProgram" Member="ServiceOutcome" ThisKey="ServiceOutcomeId" OtherKey="ServiceOutcomeId" Type="ServiceOutcome" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Referral" Member="Referrals">
+    <Type Name="Referral">
+      <Column Name="ReferralId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AssignedTo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReferingCounslerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceRequested" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Other" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReferralDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="StatusId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProgramId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceOutcomeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProgramOutcome" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OldId" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Referral_Authorization" Member="Authorizations" ThisKey="ReferralId" OtherKey="ReferralId" Type="Authorization" />
+      <Association Name="Referral_Report" Member="Reports" ThisKey="ReferralId" OtherKey="ReferralId" Type="Report" />
+      <Association Name="Referral_ProgramOutcome" Member="ProgramOutcomes" ThisKey="ReferralId" OtherKey="ReferralId" Type="ProgramOutcome" />
+      <Association Name="Referral_Placement" Member="Placements" ThisKey="ReferralId" OtherKey="ReferralId" Type="Placement" />
+      <Association Name="CRPServiceRequested_Referral" Member="CRPServiceRequested" ThisKey="ServiceRequested" OtherKey="ServiceRequestedId" Type="CRPServiceRequested" IsForeignKey="true" />
+      <Association Name="ReferralStatus_Referral" Member="ReferralStatus" ThisKey="StatusId" OtherKey="StatusId" Type="ReferralStatus" IsForeignKey="true" />
+      <Association Name="ReferringCounselor_Referral" Member="ReferringCounselor" ThisKey="ReferingCounslerId" OtherKey="ReferringCounselorId" Type="ReferringCounselor" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Referral" Member="AssignedToUser" Storage="_RegisteredUser" ThisKey="AssignedTo" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="ServiceOutcome_Referral" Member="ServiceOutcome" ThisKey="ServiceOutcomeId" OtherKey="ServiceOutcomeId" Type="ServiceOutcome" IsForeignKey="true" />
+      <Association Name="Info_Referral" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+      <Association Name="ProgramInstance_Referral" Member="ProgramInstance" ThisKey="ProgramId" OtherKey="id" Type="ProgramInstance" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Misc" Member="Miscs">
+    <Type Name="Misc">
+      <Column Name="MiscId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GenderId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaritalStatusId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TransportationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PoliceRecordId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubstanceAbuseHistoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RaceAmeInd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RaceAsian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RaceBlack" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RaceHispanic" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RacePacific" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RaceWhite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EduHSG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EduHSCNoDiploma" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EduCY" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EduCDorPG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EduGed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EduSE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EduEII" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EduActualGradeCompleted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumberOfChildren" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumberOfDependents" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LengthOfUnemployment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EZone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WIA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DoNotEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DoNotMail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DoNotCall" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Inputedby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Gender_Misc" Member="Gender" ThisKey="GenderId" OtherKey="GenderID" Type="Gender" IsForeignKey="true" />
+      <Association Name="MaritalStatus_Misc" Member="MaritalStatus" ThisKey="MaritalStatusId" OtherKey="MaritalStatusID" Type="MaritalStatus" IsForeignKey="true" />
+      <Association Name="PoliceRecordType_Misc" Member="PoliceRecordType" ThisKey="PoliceRecordId" OtherKey="PoliceRecordTypeId" Type="PoliceRecordType" IsForeignKey="true" />
+      <Association Name="SubstanceAbuse_Misc" Member="SubstanceAbuse" ThisKey="SubstanceAbuseHistoryId" OtherKey="SubstanceAbuseId" Type="SubstanceAbuse" IsForeignKey="true" />
+      <Association Name="Transportation_Misc" Member="Transportation" ThisKey="TransportationId" OtherKey="TransportationId" Type="Transportation" IsForeignKey="true" />
+      <Association Name="LenthOfUmemployment_Misc" Member="LenthOfUmemployment" ThisKey="LengthOfUnemployment" OtherKey="LenthofUnemploymentId" Type="LenthOfUmemployment" IsForeignKey="true" />
+      <Association Name="Info_Misc" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Attachments" Member="Attachments">
+    <Type Name="Attachment">
+      <Column Name="FileId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NoteId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="metadata" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Ext" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="mimtype" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="size" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Note_Attachment" Member="Note" ThisKey="NoteId" OtherKey="NoteId" Type="Note" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Admin.Groups" Member="Groups">
+    <Type Name="Group">
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Groupname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Group_ProfileGroupContainer" Member="ProfileGroupContainers" ThisKey="GroupId" OtherKey="GroupId" Type="ProfileGroupContainer" />
+    </Type>
+  </Table>
+  <Table Name="Admin.Profiles" Member="Profiles">
+    <Type Name="Profile">
+      <Column Name="ProfileId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Profile_ProfileGroupContainer" Member="ProfileGroupContainers" ThisKey="ProfileId" OtherKey="ProfileId" Type="ProfileGroupContainer" />
+      <Association Name="Profile_RegisteredUser" Member="RegisteredUsers" ThisKey="ProfileId" OtherKey="ProfileId" Type="RegisteredUser" />
+    </Type>
+  </Table>
+  <Table Name="Admin.ProfileGroupContainer" Member="ProfileGroupContainers">
+    <Type Name="ProfileGroupContainer">
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProfileId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Group_ProfileGroupContainer" Member="Group" ThisKey="GroupId" OtherKey="GroupId" Type="Group" IsForeignKey="true" />
+      <Association Name="Profile_ProfileGroupContainer" Member="Profile" ThisKey="ProfileId" OtherKey="ProfileId" Type="Profile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].RegisteredUsers" Member="RegisteredUsers">
+    <Type Name="RegisteredUser" Id="ID1">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Supervisor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ProfileId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="RegisteredUser_Address" Member="Addresses" ThisKey="UserId" OtherKey="InputedBy" Type="Address" />
+      <Association Name="RegisteredUser_Authorization" Member="Authorizations" ThisKey="UserId" OtherKey="InputedBy" Type="Authorization" />
+      <Association Name="RegisteredUser_Fee" Member="Fees" ThisKey="UserId" OtherKey="InputedBy" Type="Fee" />
+      <Association Name="RegisteredUser_Referral" Member="Referrals" ThisKey="UserId" OtherKey="AssignedTo" Type="Referral" />
+      <Association Name="RegisteredUser_RegisteredUser" Member="SupervisorInfo" ThisKey="UserId" OtherKey="Supervisor" Type="RegisteredUser" />
+      <Association Name="RegisteredUser_ProgramOutcome" Member="ProgramOutcomes" ThisKey="UserId" OtherKey="InputedBy" Type="ProgramOutcome" />
+      <Association Name="RegisteredUser_ServiceAttendance" Member="ServiceAttendances" ThisKey="UserId" OtherKey="InputedBy" Type="ServiceAttendance" />
+      <Association Name="RegisteredUser_Note" Member="Notes" ThisKey="UserId" OtherKey="InputedBy" Type="Note" />
+      <Association Name="RegisteredUser_Service" Member="Services" ThisKey="UserId" OtherKey="AssignedTo" Type="Service" />
+      <Association Name="RegisteredUser_Placement" Member="Placements" ThisKey="UserId" OtherKey="StaffId" Type="Placement" />
+      <Association Name="RegisteredUser_Info" Member="Infos" ThisKey="UserId" OtherKey="Inputedby" Type="Info" />
+      <Association Name="RegisteredUser_ProgramInstance" Member="ProgramInstances" ThisKey="UserId" OtherKey="SupervisorId" Type="ProgramInstance" />
+      <Association Name="RegisteredUser_ProgramInstance1" Member="BSProgramInstances" ThisKey="UserId" OtherKey="BillingSupervisorId" Type="ProgramInstance" />
+      <Association Name="Profile_RegisteredUser" Member="Profile" ThisKey="ProfileId" OtherKey="ProfileId" Type="Profile" IsForeignKey="true" />
+      <Association Name="RegisteredUser_RegisteredUser" Member="RegisteredUser" ThisKey="Supervisor" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Contact" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="ContactID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Other" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ContactInfo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactInfoTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ContactInfoType_Contact" Member="ContactInfoType" ThisKey="ContactInfoTypeId" OtherKey="ContactInfoTypeId" Type="ContactInfoType" IsForeignKey="true" />
+      <Association Name="ContactType_Contact" Member="ContactType" ThisKey="ContactTypeId" OtherKey="ContactTypeID" Type="ContactType" IsForeignKey="true" />
+      <Association Name="Info_Contact" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.ServiceOutcome" Member="ServiceOutcomes">
+    <Type Name="ServiceOutcome">
+      <Column Name="ServiceOutcomeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceOutcomeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ServiceOutcome_SetServiceOutcomesforProgram" Member="SetServiceOutcomesforPrograms" ThisKey="ServiceOutcomeId" OtherKey="ServiceOutcomeId" Type="SetServiceOutcomesforProgram" />
+      <Association Name="ServiceOutcome_Referral" Member="Referrals" ThisKey="ServiceOutcomeId" OtherKey="ServiceOutcomeId" Type="Referral" />
+      <Association Name="ServiceOutcome_Service" Member="Services" ThisKey="ServiceOutcomeId" OtherKey="ServiceOutcomeId" Type="Service" />
+    </Type>
+  </Table>
+  <Table Name="[Case].ProgramOutcomes" Member="ProgramOutcomes">
+    <Type Name="ProgramOutcome">
+      <Column Name="PoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReferralId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PoTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PoData" Type="System.Xml.Linq.XElement" DbType="Xml NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InfoPathData" Type="System.Xml.Linq.XDocument" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="PoType_ProgramOutcome" Member="PoType" ThisKey="PoTypeId" OtherKey="PoTypeId" Type="PoType" IsForeignKey="true" />
+      <Association Name="Referral_ProgramOutcome" Member="Referral" ThisKey="ReferralId" OtherKey="ReferralId" Type="Referral" IsForeignKey="true" />
+      <Association Name="RegisteredUser_ProgramOutcome" Member="RegisteredUser" ThisKey="InputedBy" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Admin.ServiceAttendances" Member="ServiceAttendances">
+    <Type Name="ServiceAttendance">
+      <Column Name="AttendanceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="AttendanceTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Clock" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="RegisteredUser_ServiceAttendance" Member="RegisteredUser" ThisKey="InputedBy" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="AttendanceType_ServiceAttendance" Member="AttendanceType" ThisKey="AttendanceTypeId" OtherKey="AttendanceTypeId" Type="AttendanceType" IsForeignKey="true" />
+      <Association Name="Service_ServiceAttendance" Member="Service" ThisKey="ServiceId" OtherKey="ServiceId" Type="Service" IsForeignKey="true" />
+      <Association Name="Info_ServiceAttendance" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.AttendanceTypes" Member="AttendanceTypes">
+    <Type Name="AttendanceType">
+      <Column Name="AttendanceTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AttendanceType" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="AttendanceType_ServiceAttendance" Member="ServiceAttendances" ThisKey="AttendanceTypeId" OtherKey="AttendanceTypeId" Type="ServiceAttendance" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Notes" Member="Notes">
+    <Type Name="Note">
+      <Column Name="NoteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Link" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="XmlData" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Note_Attachment" Member="Attachments" ThisKey="NoteId" OtherKey="NoteId" Type="Attachment" />
+      <Association Name="RegisteredUser_Note" Member="RegisteredUser" ThisKey="InputedBy" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="Info_Note" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Services" Member="Services">
+    <Type Name="Service">
+      <Column Name="ServiceId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AuthorizationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfUnitesAuthorized" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
+      <Column Name="AmountAuthorized" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfUnits" Type="System.Decimal" DbType="Decimal(7,2) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssignedTo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CostCenter" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ServiceEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SchedualStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SchedualEndDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ServiceOutcomeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceDetails" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Service_ServiceAttendance" Member="ServiceAttendances" ThisKey="ServiceId" OtherKey="ServiceId" Type="ServiceAttendance" />
+      <Association Name="Authorization_Service" Member="Authorization" ThisKey="AuthorizationId" OtherKey="AuthorizationID" Type="Authorization" IsForeignKey="true" />
+      <Association Name="Product_Service" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Service" Member="RegisteredUser" ThisKey="AssignedTo" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="ServiceOutcome_Service" Member="ServiceOutcome" ThisKey="ServiceOutcomeId" OtherKey="ServiceOutcomeId" Type="ServiceOutcome" IsForeignKey="true" />
+      <Association Name="UnitType_Service" Member="UnitType" ThisKey="UnitTypeId" OtherKey="UnitTypeId" Type="UnitType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vAlerts" Member="vAlerts">
+    <Type Name="vAlert">
+      <Column Name="AlertId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromName1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FromEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ToId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ToName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ToEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Link" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Submited" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Display" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="[Case].Placements" Member="Placements">
+    <Type Name="Placement">
+      <Column Name="PlacementId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="ReferralId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JobTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Wage" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="WageTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JobTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HoursPerWeek" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasMedical" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Is90ofEmploymentPrep" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsPlacement" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PlacementDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsClosure" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ClosureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="InputedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ed" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Ud" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="WageIncrease90" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="WageIncrease90None" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WageIncrease180" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="WageIncrease180None" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Retention90" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Retention90Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Retention180" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Retention180Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Company_Placement" Member="Company" ThisKey="CompanyId" OtherKey="id" Type="Company" IsForeignKey="true" />
+      <Association Name="JobType_Placement" Member="JobType" ThisKey="JobTypeId" OtherKey="JobTypeId" Type="JobType" IsForeignKey="true" />
+      <Association Name="PlacementType_Placement" Member="PlacementType" ThisKey="TypeId" OtherKey="PlacementTypeId" Type="PlacementType" IsForeignKey="true" />
+      <Association Name="Referral_Placement" Member="Referral" ThisKey="ReferralId" OtherKey="ReferralId" Type="Referral" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Placement" Member="RegisteredUser" ThisKey="StaffId" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="WageType_Placement" Member="WageType" ThisKey="WageTypeId" OtherKey="WageTypeId" Type="WageType" IsForeignKey="true" />
+      <Association Name="Info_Placement" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.LenthOfUmemployments" Member="LenthOfUmemployments">
+    <Type Name="LenthOfUmemployment">
+      <Column Name="LenthofUnemploymentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LenthOfUnEmploymentDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="LenthOfUmemployment_Misc" Member="Miscs" ThisKey="LenthofUnemploymentId" OtherKey="LengthOfUnemployment" Type="Misc" />
+    </Type>
+  </Table>
+  <Table Name="[Case].SpecialNeedsContainer" Member="SpecialNeedsContainers">
+    <Type Name="SpecialNeedsContainer">
+      <Column Name="SpecialNeedsContainerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="SpecialNeedId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SpecialNeed_SpecialNeedsContainer" Member="SpecialNeed" ThisKey="SpecialNeedId" OtherKey="SpecialNeedId" Type="SpecialNeed" IsForeignKey="true" />
+      <Association Name="Info_SpecialNeedsContainer" Member="Info" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.SpecialNeeds" Member="SpecialNeeds">
+    <Type Name="SpecialNeed">
+      <Column Name="SpecialNeedId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SpecialNeedName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SpecialNeedDesc" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="SpecialNeed_SpecialNeedsContainer" Member="SpecialNeedsContainers" ThisKey="SpecialNeedId" OtherKey="SpecialNeedId" Type="SpecialNeedsContainer" />
+    </Type>
+  </Table>
+  <Table Name="Consumers.Info" Member="Infos">
+    <Type Name="Info">
+      <Column Name="RegistrarNo" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SSN" Type="System.String" DbType="NVarChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="REF" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConsumerTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Inputedby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ED" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UD" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Permilink" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PrefixId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SufixId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FlagForHr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Info_Address" Member="Addresses" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Address" />
+      <Association Name="Info_Dependent" Member="Dependents" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Dependent" />
+      <Association Name="Info_Education" Member="Educations" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Education" />
+      <Association Name="Info_Disability" Member="Disabilities" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Disability" />
+      <Association Name="Info_Income" Member="Incomes" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Income" />
+      <Association Name="Info_Referral" Member="Referrals" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Referral" />
+      <Association Name="Info_Misc" Member="Miscs" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Misc" />
+      <Association Name="Info_Contact" Member="Contacts" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Contact" />
+      <Association Name="Info_ServiceAttendance" Member="ServiceAttendances" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="ServiceAttendance" />
+      <Association Name="Info_Note" Member="Notes" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Note" />
+      <Association Name="Info_Placement" Member="Placements" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="Placement" />
+      <Association Name="Info_SpecialNeedsContainer" Member="SpecialNeedsContainers" ThisKey="RegistrarNo" OtherKey="RegistrarNo" Type="SpecialNeedsContainer" />
+      <Association Name="ConsumerType_Info" Member="ConsumerType" ThisKey="ConsumerTypeId" OtherKey="ConsumerTypeID" Type="ConsumerType" IsForeignKey="true" />
+      <Association Name="RegisteredUser_Info" Member="RegisteredUser" ThisKey="Inputedby" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="PrefixName_Info" Member="PrefixName" ThisKey="PrefixId" OtherKey="PrefixId" Type="PrefixName" IsForeignKey="true" />
+      <Association Name="SufixName_Info" Member="SufixName" ThisKey="SufixId" OtherKey="SuffixId" Type="SufixName" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Options.PrefixNames" Member="PrefixNames">
+    <Type Name="PrefixName">
+      <Column Name="PrefixId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrefixName" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PrefixName_Info" Member="Infos" ThisKey="PrefixId" OtherKey="PrefixId" Type="Info" />
+    </Type>
+  </Table>
+  <Table Name="Options.SufixNames" Member="SufixNames">
+    <Type Name="SufixName">
+      <Column Name="SuffixId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SufixName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SufixName_Info" Member="Infos" ThisKey="SuffixId" OtherKey="SufixId" Type="Info" />
+    </Type>
+  </Table>
+  <Table Name="Admin.ProgramInstance" Member="ProgramInstances">
+    <Type Name="ProgramInstance">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProgramId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InstanceName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CostCenter" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SupervisorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BillingSupervisorId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ProgramInstance_Referral" Member="Referrals" ThisKey="id" OtherKey="ProgramId" Type="Referral" />
+      <Association Name="RegisteredUser_ProgramInstance" Member="Supervisor" ThisKey="SupervisorId" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="RegisteredUser_ProgramInstance1" Member="BillingSupervisor" ThisKey="BillingSupervisorId" OtherKey="UserId" Type="RegisteredUser" IsForeignKey="true" />
+      <Association Name="Location_ProgramInstance" Member="Location" ThisKey="LocationId" OtherKey="LocationId" Type="Location" IsForeignKey="true" />
+      <Association Name="Program_ProgramInstance" Member="Program" ThisKey="ProgramId" OtherKey="ProgramId" Type="Program" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="[Case].AddFormLibraryDetails" Method="AddFormLibraryDetails">
+    <Parameter Name="FormLibId" Parameter="formLibId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FileName" Parameter="fileName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="metaData" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="ext" Type="System.String" DbType="VarChar(4)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="[Case].ADDFormLibrary" Method="ADDFormLibrary">
+    <Parameter Name="manifest" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="FormName" Parameter="formName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FormTypeId" Parameter="formTypeId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SearchTerms" Method="SearchTerms">
+    <Parameter Name="search" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="SearchTermsResult">
+      <Column Name="label" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="category" Type="System.String" DbType="VarChar(19) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AddAttachment" Method="AddAttachment">
+    <Parameter Name="NoteId" Parameter="noteId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FileName" Parameter="fileName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="metadata" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="Ext" Parameter="ext" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="mimtype" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="size" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="[Case].GetSubordinatesView" Method="GetSubordinatesView">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetSubordinatesViewResult">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NumOfConsumers" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NewServices" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PendingServices" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InProgressServices" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompletedServices" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumOfPlacementsYtd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumofBillesInAccrue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumofOpenReferrals" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumofClosedReferrals" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="[Case].GetSubordinates" Method="GetSubordinates">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.AddInfopathtoProgramOutcome" Method="AddInfopathtoProgramOutcome">
+    <Parameter Name="infopathdata" Type="System.String" DbType="NText" />
+    <Parameter Name="poid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ValidateConsumer" Method="ValidateConsumer">
+    <Parameter Name="RegistrarNo" Parameter="registrarNo" Type="System.String" DbType="VarChar(6)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChkSub" Method="ChkSub">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="sub" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ResetAlert" Method="ResetAlert">
+    <Parameter Name="alertid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ResetAllAlert" Method="ResetAllAlert">
+    <Parameter Name="ToID" Parameter="toID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SetAlert" Method="SetAlert">
+    <Parameter Name="FromId" Parameter="fromId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ToId" Parameter="toId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Subject" Parameter="subject" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Message" Parameter="message" Type="System.String" DbType="VarChar(300)" />
+    <Parameter Name="Link" Parameter="link" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.HasAlert" Method="HasAlert">
+    <Parameter Name="ToID" Parameter="toID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CustomeSQL" Method="CustomeSQL">
+    <Parameter Name="SQLText" Parameter="sQLText" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReAssignCase" Method="ReAssignCase">
+    <Parameter Name="registrarno" Type="System.String" DbType="VarChar(6)" />
+    <Parameter Name="NewUserId" Parameter="newUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OldUserId" Parameter="oldUserId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ReAssignCases" Method="ReAssignCases">
+    <Parameter Name="NewUserId" Parameter="newUserId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OldUserId" Parameter="oldUserId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

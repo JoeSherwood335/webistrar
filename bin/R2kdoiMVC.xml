@@ -1,0 +1,93 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+R2kdoiMVC
+</name>
+</assembly>
+<members>
+<member name="M:R2kdoiMVC.iLocationsRepository.GetAllLocations">
+	<summary>
+ Get All Locations
+ </summary>
+</member><member name="M:R2kdoiMVC.iReportsRepository.GetReport(System.Int32)">
+	<summary>
+	</summary>
+</member><member name="M:R2kdoiMVC.iFundingSourceRepository.GetAllFundingSources">
+	<summary>
+ Returns All Funding Sources from model
+ </summary>
+</member><member name="M:R2kdoiMVC.iFundingSourceRepository.GetFundingSource(System.Int64)">
+	<summary>
+ Returns One Funding Source from Model
+ </summary>
+</member><member name="M:R2kdoiMVC.iFundingSourceRepository.GetFundingSource(System.String)">
+	<summary>
+ Returns One Funding Source from Model
+ </summary>
+</member><member name="M:R2kdoiMVC.iFundingSourceRepository.Save">
+	<summary>
+ Do i really need to explain this
+ </summary>
+</member><member name="M:R2kdoiMVC.iFundingSourceRepository.Add(R2kdoiMVC.Model.FundingSource)">
+	<summary>
+ Add New Funding Source
+ </summary>
+	<param name="NewFundingSource"></param>
+</member><member name="P:R2kdoiMVC.Model.ProgramOutcomes.WeOutcome.WasVocationalGoalDetermined">
+	<summary>
+ Was Goal Determined
+ </summary>
+	<value>Boolean</value>
+</member><member name="P:R2kdoiMVC.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:R2kdoiMVC.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:R2kdoiMVC.My.Resources.Resources.ADD_Form_Details_SqlStatement">
+	<summary>
+  Looks up a localized string similar to INSERT INTO [R2kdoiMVC].[Case].[FormLibraryDetails]
+           ([FormLibId]
+           ,[FileName]
+           ,[metaXML]
+           ,[metaData]
+           ,[ext])
+     VALUES
+           (@FormLibId
+           ,@FileName
+           ,@metaXML
+           ,@metaData
+           ,@ext).
+</summary>
+</member><member name="T:R2kdoiMVC.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:R2kdoiMVC.Repository.SetSelectListforCreate">
+	<summary>
+ Sets the Selectlist for Edit form
+ </summary>
+</member><member name="M:R2kdoiMVC.iProductRepository.GetAllProducts">
+	<summary>
+ Returns All Product from model
+ </summary>
+</member><member name="M:R2kdoiMVC.iProductRepository.GetProduct(System.Int64)">
+	<summary>
+ Returns One Product from Model
+ </summary>
+</member><member name="M:R2kdoiMVC.iProductRepository.Save">
+	<summary>
+ Do i really need to explain this
+ </summary>
+</member><member name="M:R2kdoiMVC.iProductRepository.Add(R2kdoiMVC.Model.Product)">
+	<summary>
+ Add Product Source
+ </summary>
+	<param name="newProduct"></param>
+</member>
+</members>
+</doc>
